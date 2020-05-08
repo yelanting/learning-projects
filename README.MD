@@ -2,4 +2,5 @@
 
 ## 笔记目录
 
-- learing-multi-thread多线程学习
+- learning-multi-thread多线程学习
+- learning-sql sql的学习
