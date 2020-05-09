@@ -40,7 +40,7 @@
 		<logback.version>1.2.3</logback.version>
 	</properties>
 	<modules>
-		<module>learing-multi-thread</module>
+		<module>learning-multi-thread</module>
 	</modules>
 
 	<dependencyManagement>
