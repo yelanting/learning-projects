@@ -277,3 +277,426 @@ console.log(book2);
 
 结果如下:
 ![展开运算符复制对象属性](./images/展开运算符复制对象属性.png)
+
+### 2.5 对象字面量语法扩展
+
+ES6中对原有的语法进行了扩展，使得新的用法更简洁。
+
+#### 2.5.1 属性初始值简写
+
+ES5及早期版本中，对象字面量需要key:value都写出来，只是简单的键值对集合。
+如：
+
+```javascript
+function createCar(color , doors){
+    return {
+        color: color,
+        doors: doors
+    }
+}
+```
+
+由此看出，代码重复不少。左边是键值，右边是键值
+
+ES6中给出了简写，可以消除部分重复。当一个对象的属性和本地变量同名的时候，可以不用写冒号和键值，简单书写属性名即可。
+
+```JavaScript
+function createCar(color , doors){
+    return {
+        //参数名和本地变量同名
+        color,
+        doors
+    }
+}
+```
+
+当对象字面量只有属性名称的时候，JavaScript引擎会在本地可访问的作用域中查找同名变量，如果找到则会把变量值赋值给对象字面量力的同名属性。
+
+#### 2.5.2 对象方法的简写
+
+ES6改进了对象字面量方法的定义。在ES5以及以前，必须指定方法名称并给出完整的函数定义。
+ES5:
+```javascript
+var car = {
+    color: "red",
+    doors: 4,
+    showColor: function(){
+        console.log(this.color);
+    }
+}
+```
+
+ES6省略冒号和function关键字:
+```javascript
+var car = {
+    color:"red",
+    doors: 4,
+    showColor(){
+        console.log(this.color);
+    }
+}
+
+car.showColor();
+console.log(car.showColor.name);
+
+```
+下面是运行结果：
+
+![对象字面量方法定义的简写](/learning-vue/images/对象字面量方法定义的简写.png)
+
+**注意**:
+对象方法简写创建的方法有一个name属性，值为圆括号前面的名称。
+
+#### 2.5.2 可计算的属性名
+
+JavaScript中访问对象的属性时，可以通过点或者方括号，但是如果属性名包含了特殊字符或者需要计算才能得到，则需要使用方括号。
+
+代码如下:
+```javascript
+let suffix = "name";
+let person = {};
+person['first name'] = "sam";//属性名有空格
+person['last' + suffix] = "liu";//属性名由表达式计算
+person.age = 20;
+console.log(person);
+```
+结果如下:
+
+![对象字面量属性计算](./images/对象字面量属性计算.png)
+
+任何可用于对象实例方括号记法的属性名，都可以作为计算属性名。
+
+### 2.6 解构
+
+在JavaScript中，我们经常需要从某个对象或者数组中提取数据出来单独使用，这种操作重复又无趣。
+如：
+```javascript
+let book = {
+    title:"Vue",
+    author:"sam",
+    isbn:"12345"
+}
+
+//提取对象属性
+let title = book.title;
+let author = book.author;
+
+//提取数组数值
+let arr = [1 , 2, 3];
+let a = arr[0], b = arr[1] , c = arr[3]
+```
+
+ES6中，对象和数组提供了解构功能，允许按照一定的模式从对象和数组中取出值，给变量赋值。
+
+#### 2.6.1 对象解构
+
+##### 2.6.1.1 语法: 在赋值操作符左边放置一个对象字面量。
+```javascript
+let book = {
+    title:"Vue",
+    author:"sam",
+    isbn:"12345"
+}
+
+let { title , author , isbn} = book;
+
+console.log(`title is :${title} , author is :${author} , isbn is :${isbn}`)
+
+```
+下面是结果:
+
+![对象解构赋值的结果](./images/对象解构.png)
+
+##### 2.6.1.2 同名限制
+
+如果是用var、let、const进行解构声明，则必须提供初始化程序，等号右边必须有值，否则胡出错。
+```javascript
+
+let { title , author , isbn};
+```
+结果如下:
+![对象解构时必须给定右边的值](./images/使用解构时未初始化右边的值.png)
+
+如果变量之前已经声明过，后面又想通过解构进行赋值，则需要把整个解构语句括起来。如：
+```javascript
+
+let book = {
+    title:"Vue",
+    author:"sam",
+    isbn:"12345"
+}
+
+let  title , author , isbn;
+//这个是错误的：
+//{title, author , isbn} = book;
+
+({title , author ,isbn } = book);
+console.log(`title is :${title} , author is :${author} , isbn is :${isbn}`)
+```
+下面是先声明后解构的结果:
+![先声明后解构的结果](./images/先声明后解构的结果.png)
+
+下面是未加括号的结果,可看出无法取出想要的结果:
+![先声明未加括号后解构的结果](./images/先声明未加括号后解构的结果.png)
+原因是： JavaScript引擎会默认把一对开放的花括号视为一个代码块，语法规定了代码块语句不允许出现在赋值语句左侧，添加圆括号之后把块语句转化为了一个表达式，从而实现解构赋值。
+
+##### 2.6.1.3 解构的一些有趣操作
+
+整个解构表达式的值与后面右侧的对象值相等，因此可以实现一些有趣的操作。
+给变量赋值的同时，还可以给函数传参：
+
+```javascript
+let book = {
+    title:"Vue",
+    author:"sam",
+    isbn:"12345"
+}
+function outputBook(book){
+    console.log(book);
+}
+
+let  title , author , isbn;
+outputBook({title , author ,isbn } = book);
+console.log(`title is :${title} , author is :${author} , isbn is :${isbn}`)
+```
+
+结果如下：
+![解构的同时传参](./images/解构赋值的同时传参.png)
+
+##### 2.6.1.4 解构默认值
+
+当本地变量中，在对象不存在的时候，则会指定为undefined，如果此时想给定一个默认值，则可以在左侧直接=赋值。如下:
+```javascript
+let book = {
+    title:"Vue",
+    author:"sam",
+    isbn:"12345"
+}
+function outputBook(book){
+    console.log(book);
+}
+
+let  title , author , isbn ,unknown;
+outputBook({title , author ,isbn ,unknown = "unknownvalue"} = book);
+console.log(`title is :${title} , author is :${author} , isbn is :${isbn} , unknown is :${unknown}`)
+
+```
+当解构对象的属性中不存在某个属性的时候，或者该属性的值为undefined的时候，就使用提供的默认值。结果如下:
+![解构赋值的默认值](./images/解构赋值的默认值.png)
+
+##### 2.6.1.5 解构时局部变量和属性不同名
+
+多数情况下，我们都使用和属性名相同的局部变量名，当然也可以使用不同的名称，只需要在解构的时候赋值左边的对面字面量使用key:value的形式即可。
+它的含义是，读取key的值，赋给本地变量value。
+要读取的属性是冒号左边的属性，读取出来的属性值赋给冒号右边的那个变量。
+
+如下所示：
+```javascript
+let book = {
+    title:"Vue",
+    author:"sam",
+    isbn:"12345"
+}
+function outputBook(book){
+    console.log(book);
+}
+
+let  bookTitle , author , isbn ,unknown;
+outputBook({title:bookTitle , author ,isbn ,unknown = "unknownvalue"} = book);
+console.log(`title is :${bookTitle} , author is :${author} , isbn is :${isbn} , unknown is :${unknown}`)
+```
+
+结果如下，同样可以得到属性值:
+
+![解构时属性名和本地变量名不同](./images/解构时属性名和本地变量名不同.png)
+
+##### 2.6.1.6 嵌套解构
+
+JavaScript中的对象嵌套很平常，解构的时候同样可以嵌套。
+
+```javascript
+let book = {
+    title:"Vue",
+    author:"sam",
+    isbn:"12345",
+    category:{
+        id:1,
+        name:"前端技术"
+    }
+}
+
+let {title, author ,isbn ,category:{name: categoryName}} = book;
+console.log(`title is :${title} , author is :${author} , isbn is :${isbn} , 所属种类is :${categoryName}`)
+```
+
+下面是嵌套解构的结果:
+
+![嵌套解构](./images/对象的嵌套解构.png)
+因此可以看出，这段代码的含义是：在找到book对象的category属性后，继续深入下一层查找name属性，找到了之后赋给categoryName局部变量。
+
+在解构语法中，冒号前面的标识符代表要查找的属性索引，右侧为其要赋值的变量名；如果冒号右面是花括号，则表示要赋予的最终值嵌套在内部深层中。
+
+#### 2.6.2 数组解构
+
+和对象字面量的解构不同，数组解构使用方括号。数组本质结构的不同，决定了数组解构没有属性名的问题，因此会更简单。
+
+##### 2.6.2.1 默认用法
+
+如:
+
+```javascript
+let arr = [1 ,2 ,3 ];
+let [a , b , c ] = arr;
+
+console.log(`a:${a} , b: ${b} , c: ${c}`)
+
+```
+结果如下:
+![数组解构默认用法](./images/数组解构默认用法.png)
+
+##### 2.6.2.2 指定位置
+
+有的时候想取特定位置的值，比如取第二个，也就是索引1，如:
+
+```javascript
+let arr = [1 ,2 ,3 ];
+let [ , b  ] = arr;
+
+console.log(`b: ${b}`)
+
+```
+结果如下:
+![数组解构时指定特定位置取值](./images/数组解构时指定特定位置取值.png)
+
+因此总结起来就是，前面的逗号是指定位置前方元素的占位符，无论数组中的元素有多少个，都可以用这种方式来提取。
+
+##### 2.6.2.3 已声明的变量解构
+
+与对象的解构不同，如果已经声明过的变量想通过解构来取值，不需要使用圆括号，因为没有了大括号表示代码块的歧义。
+
+##### 2.6.2.4 解构默认值
+
+同对象字面量的解构默认值用法。
+当指定位置元素不存在或者为undefined的时候使用默认值。
+
+##### 2.6.2.5 嵌套解构
+
+同对象字面量的嵌套解构。
+
+##### 2.6.2.6 展开运算符和解构同时使用
+
+可以完成数组赋值，以及对象的重新提取和赋值。
+
+## 2.7 箭头函数
+
+ES6允许使用箭头定义函数，语法多变，可根据实际使用场景有多种形式，都需要有函数参数、箭头、函数体组成。
+
+### 2.7.1 语法
+
+#### 2.7.1.1 单一参数
+
+单一参数、函数体只有一条语句。
+
+```javascript
+let welcome = msg => msg;
+
+/**它相当于以下函数
+function welcome(msg){
+    return msg;
+}
+**/
+console.log(welcome("sam"));
+```
+
+结果如下:
+
+![箭头函数的单一参数用法](./images/箭头函数-单一参数用法.png)
+
+#### 2.7.1.2 多参数
+
+多参数的箭头函数，需要用括号包括起来，和定义函数时类似。
+如下:
+
+```javascript
+let welcome = (name , msg) => `${name} : ${msg}`;
+
+/**它相当于以下函数
+function welcome(name , msg){
+    return `${name} : ${msg}`;
+}
+**/
+console.log(welcome("sam" ,"你好"));
+```
+
+结果如下:
+![箭头函数多参数用法](./images/箭头函数-多参数用法.png)
+
+#### 2.7.1.3 无参数
+
+无参数的函数定义，需要一个空的圆括号。
+
+```javascript
+let welcome = () => "这是个无参的箭头函数";
+
+/**它相当于以下函数
+function welcome(){
+    return "这是个无参的箭头函数";
+}
+**/
+console.log(welcome());
+```
+
+结果如下:
+![箭头函数无参数用法](./images/箭头函数-无参数用法.png)
+
+#### 2.7.1.4 代码块有多行
+
+多行代码块的箭头函数定义，需要一个大括号包括代码块。
+
+```javascript
+let welcome = () => {
+    let name = "hello welcome";
+    return `这是个无参的箭头函数:${name}`
+};
+
+/**它相当于以下函数
+function welcome(){
+    let name = "hello welcome";
+    return `这是个无参的箭头函数:${name}`
+}
+**/
+console.log(welcome());
+```
+
+结果如下:
+![箭头函数多行代码用法](./images/箭头函数-多行代码用法.png)
+
+#### 2.7.1.5 无参 无函数体
+
+没有参数，没有函数体的空箭头函数，需要空的圆括号包裹参数，一个空的花括号包裹函数体。
+如下:
+
+```javascript
+let welcomeEmpty = () => {};
+/**
+相当于
+function welcomeEmpty(){
+
+}
+**/
+
+```
+
+#### 2.7.1.6 返回值是对象字面量
+
+如果箭头函数返回的是对象字面量，由于代码块和对象字面量定义的歧义，需要用圆括号把对象字面量括起来。如下所示：
+
+```javascript
+let welcome = () => 	({ name: "sam", msg: "welcome" });
+let result = welcome();
+
+console.log(`${JSON.stringify(result)}, type: ${typeof result}`);
+```
+
+结果如下：
+![箭头函数返回对象字面量用法](./inages/../images/箭头函数-返回对象字面量用法.png)
