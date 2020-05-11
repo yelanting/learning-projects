@@ -587,13 +587,13 @@ console.log(`b: ${b}`)
 
 可以完成数组赋值，以及对象的重新提取和赋值。
 
-## 2.7 箭头函数
+### 2.7 箭头函数
 
 ES6允许使用箭头定义函数，语法多变，可根据实际使用场景有多种形式，都需要有函数参数、箭头、函数体组成。
 
-### 2.7.1 语法
+#### 2.7.1 语法
 
-#### 2.7.1.1 单一参数
+##### 2.7.1.1 单一参数
 
 单一参数、函数体只有一条语句。
 
@@ -612,7 +612,7 @@ console.log(welcome("sam"));
 
 ![箭头函数的单一参数用法](./images/箭头函数-单一参数用法.png)
 
-#### 2.7.1.2 多参数
+##### 2.7.1.2 多参数
 
 多参数的箭头函数，需要用括号包括起来，和定义函数时类似。
 如下:
@@ -631,7 +631,7 @@ console.log(welcome("sam" ,"你好"));
 结果如下:
 ![箭头函数多参数用法](./images/箭头函数-多参数用法.png)
 
-#### 2.7.1.3 无参数
+##### 2.7.1.3 无参数
 
 无参数的函数定义，需要一个空的圆括号。
 
@@ -649,7 +649,7 @@ console.log(welcome());
 结果如下:
 ![箭头函数无参数用法](./images/箭头函数-无参数用法.png)
 
-#### 2.7.1.4 代码块有多行
+##### 2.7.1.4 代码块有多行
 
 多行代码块的箭头函数定义，需要一个大括号包括代码块。
 
@@ -671,7 +671,7 @@ console.log(welcome());
 结果如下:
 ![箭头函数多行代码用法](./images/箭头函数-多行代码用法.png)
 
-#### 2.7.1.5 无参 无函数体
+##### 2.7.1.5 无参 无函数体
 
 没有参数，没有函数体的空箭头函数，需要空的圆括号包裹参数，一个空的花括号包裹函数体。
 如下:
@@ -687,7 +687,7 @@ function welcomeEmpty(){
 
 ```
 
-#### 2.7.1.6 返回值是对象字面量
+##### 2.7.1.6 返回值是对象字面量
 
 如果箭头函数返回的是对象字面量，由于代码块和对象字面量定义的歧义，需要用圆括号把对象字面量括起来。如下所示：
 
@@ -700,3 +700,328 @@ console.log(`${JSON.stringify(result)}, type: ${typeof result}`);
 
 结果如下：
 ![箭头函数返回对象字面量用法](./inages/../images/箭头函数-返回对象字面量用法.png)
+
+#### 2.7.2 箭头函数与this
+
+JavaScript中的this关键字，与其他高级语言的this不同，它并不是只想对象本身，可以根据具体情形修改这个指向，根据当前运行上下文变化而变化。
+
+```javascript
+var greeting = "welcome";
+
+function sayHello(user){
+    console.log(this);
+    console.log(`${this.greeting} , ${user}`)
+}
+
+var obj = {
+    greeting : "hello",
+    sayHello : sayHello
+}
+
+sayHello("zhangsan");
+obj.sayHello("lisi");
+var sayHi = obj.sayHello;
+
+sayHi("wangwu");
+
+```
+
+以上代码，如果放在单独的js文件中执行，则结果如下:
+![this测试在单独的js文件](./images/this测试在单独js文件.png)
+
+
+如果执行在浏览器中：
+如下:
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			var greeting = "welcome";
+
+			function sayHello(user) {
+				console.log(this);
+				console.log(`${this.greeting} , ${user}`);
+			}
+
+			var obj = {
+				greeting: "hello",
+				sayHello: sayHello,
+			};
+
+			sayHello("zhangsan");
+			obj.sayHello("lisi");
+			var sayHi = obj.sayHello;
+
+			sayHi("wangwu");
+		</script>
+	</head>
+</html>
+
+```
+如html目录下的文件,console中的结果如下:
+![this测试在html中](./images/this测试在html文件中.PNG)
+
+因为html中有一个window对象，因此this在没有绑定到对象的时候，默认绑定在window上。
+
+**this匿名函数**
+
+看下面的代码：
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			var obj = {
+				greeting: "hello",
+				sayHello: function(){
+                    setTimeout(function(){
+                        alert(this.greeting);
+                    },2000);
+                },
+			};
+			obj.sayHello();
+		</script>
+	</head>
+</html>
+
+```
+
+结果如下:
+![this测试在html中匿名函数或者定时函数](./images/this测试在html中匿名函数或者定时函数.PNG)
+输出的是undefined，调用obj.hello的时候，只是执行了setTimeout函数，2s之后才开始执行函数中定义的匿名函数，而该匿名函数执行的上下文是window，因此this指向window，而window中没有定义，所以是undefined。
+
+**解决this的问题**
+可以使用函数对象的bind方法，将this明确绑到对象上。
+如下所示:
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+
+            var greeting = "welcome";
+            function sayHello(user){
+                console.log(this.greeting + "," + user);
+            }
+
+			var obj = {
+				greeting: "hello",
+				sayHello: sayHello
+			}
+
+            var sayHi = obj.sayHello.bind(obj);
+			sayHi("wangwu");//hello wangwu
+            
+            var obj2 = {
+				greeting: "hello2",
+				sayHello: function(){
+                    setTimeout((function(){
+                        console.log(this.greeting);
+                    }).bind(this),2000);
+                }
+			}
+
+            obj2.sayHello();
+
+		</script>
+	</head>
+</html>
+
+```
+
+结果如下:
+![this范围测试使用bind改变](./images/this范围测试使用bind改变.PNG)
+
+可以看到this被动态改变了。
+使用bind方法实际上是创建了一个新的函数，称为绑定函数，该函数的this被绑定到该参数传入的对象。
+为了避免创建一个额外的函数，通过更好的方式解决this 的问题，箭头函数应运而生。
+
+#### 2.7.3 箭头函数解决this问题
+
+箭头函数中没有this绑定，必须通过查找作用域来决定。如果箭头函数被非箭头函数包含，则this绑定的是最近一层非箭头函数的this，否则，this的值会被替换为全局对象。
+
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+
+            var greeting = "welcome";
+            function sayHello(user){
+                console.log(this.greeting + "," + user);
+            }
+
+			var obj = {
+				greeting: "hello",
+				sayHello: sayHello
+			}
+
+            var sayHi = obj.sayHello.bind(obj);
+			sayHi("wangwu");//hello wangwu
+            
+            var obj2 = {
+				greeting: "hello2",
+				sayHello: function(){
+                    setTimeout(()=> console.log(this.greeting)
+                    ,2000);
+                }
+			}
+
+            obj2.sayHello();
+
+		</script>
+	</head>
+</html>
+
+```
+结果如下：
+![使用箭头函数解决this指向](./images/使用箭头函数解决this指向.PNG)
+
+**箭头函数的this值取决于该函数外部非箭头函数的this，且不能通过bind apply
+或者call改变**
+
+箭头函数需要注意的地方：
+- 没有this 、super、arguments、和new.target绑定。箭头函数中的这些值，都由外围的最近一层非箭头函数指定
+- 不能通过new来调用。箭头函数不能被用作构造函数，不可以new箭头函数，否则会出错
+- 没有原型。由上一条决定，因此箭头函数不存在prototype。
+- 不可以改变this的绑定。函数内部的this不可改变，在函数的生命周期内保持一致。
+- 不支持arguments对象。箭头函数没有arguments绑定，只能通过命名参数和rest访问。
+
+### 2.8 类
+
+#### 2.8.1 类定义
+
+ES6引入了class关键字。
+```javascript
+class Car{
+    constructor(aColor , iDoors){
+        this.color = aColor;
+        this.doors = iDoors;
+    }
+
+    showColor(){
+        console.log(this.color);
+    }
+}
+let car = new Car("red" ,4);
+car.showColor();
+```
+结果如下:
+![类定义普通.PNG](./images/类定义普通.PNG)
+
+> 构造函数 ：constructor方法来定义构造函数。
+
+自有属性是对象的实例属性，不会出现在原型上。自有属性只能在类的构造函数中创建，一般建议在构造函数中创建所有的自有属性，从而只通过一处就可以控制自有属性。
+
+类也可以以表达式的方法来创建，效果和上面等同。
+
+```javascript
+let Car = class {
+    constructor(aColor , iDoors){
+        this.color = aColor;
+        this.doors = iDoors;
+    }
+
+    showColor(){
+        console.log(this.color);
+    }
+}
+
+let oCar = new Car("red" ,4);
+oCar.showColor();
+```
+
+使用类表达式，可以实现立即调用类的构造函数从而创建iyge类的单例对象。使用new调用类表达式，紧接着通过一对圆括号调用。
+
+```javascript
+let car = new class {
+    constructor(aColor , iDoors){
+        this.color = aColor;
+        this.doors = iDoors;
+    }
+
+    showColor(){
+        console.log(this.color);
+    }
+}("red" ,4);
+car.showColor();
+```
+
+输出跟上面保持一致，不会出错。
+
+#### 2.8.2 访问器属性
+
+访问器属性是通过get和set来创建的，语法为关键字get或者set后面跟一个空格和相对应的标识符，实际上是为某个属性定义取值和设值函数，在使用时以属性访问的方式来使用。与自有属性不同的是，访问器属性是在原型上创建的。
+
+```javascript
+class Car{
+    constructor(sName , iDoors){
+        this._name = sName;
+        this.doors = iDoors;
+    }
+
+    get desc(){
+        return `${this.name} is worth having.`;
+    }
+    get name(){
+        return this._name;
+    }
+
+    set name(value){
+        this._name = value;
+    }
+}
+
+let car = new Car("Benz" , 4);
+//将会输出Benz
+console.log(car.name);
+
+//Benz is worth having.
+console.log(car.desc);
+
+//
+car.name = "Ferrari";
+console.log(car.name);
+//下面的将会报错
+car.prototype.desc = "very good";
+```
+
+![类定义-访问器属性的限制](./images/类定义-访问器属性的限制.png)
+在访问器属性中可以添加控制逻辑。
+如果需要只读的属性，可以只提供get方法，同理如果需要只写的属性，可以只提供set。
+
+#### 2.8.3  静态方法
+
+ES6提供了static，定义静态方法。除构造函数外，类中所有方法和访问器属性都可以用static定义。
+
+```javascript
+
+class Car{
+    constructor(sName , iDoors){
+        this.name = sName;
+        this.doors = iDoors;
+    }
+
+    showName(){
+        console.log(this.name);
+    }
+
+    static createDefault(){
+        return new Car("Audi" , 4);
+    }
+}
+
+let car = Car.createDefault();
+car.showName();
+car.createDefault();
+
+```
+结果如下:
+
+![类定义-静态方法的限制](./images/类定义-静态方法的限制.png)
+
+static定义的方法是静态方法，只能通过类名来访问，不能通过实例来访问。ES6没有提供静态属性，因此还不能在实例属性前面加static。
+
+#### 2.8.4 类继承
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+
+            var greeting = "welcome";
+            function sayHello(user){
+                console.log(this.greeting + "," + user);
+            }
+
+			var obj = {
+				greeting: "hello",
+				sayHello: sayHello
+			}
+
+            var sayHi = obj.sayHello.bind(obj);
+			sayHi("wangwu");//hello wangwu
+            
+            var obj2 = {
+				greeting: "hello2",
+				sayHello: function(){
+                    setTimeout((function(){
+                        console.log(this.greeting);
+                    }).bind(this),2000);
+                }
+			}
+
+            obj2.sayHello();
+
+		</script>
+	</head>
+</html>

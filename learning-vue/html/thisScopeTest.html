@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			var greeting = "welcome";
+
+			function sayHello(user) {
+				console.log(this);
+				console.log(`${this.greeting} , ${user}`);
+			}
+
+			var obj = {
+				greeting: "hello",
+				sayHello: sayHello,
+			};
+
+			sayHello("zhangsan");
+			obj.sayHello("lisi");
+			var sayHi = obj.sayHello;
+
+			sayHi("wangwu");
+		</script>
+	</head>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			var obj = {
+				greeting: "hello",
+				sayHello: function(){
+                    setTimeout(function(){
+                        console.log(this.greeting);
+                    },2000);
+                },
+			};
+			obj.sayHello();
+		</script>
+	</head>
+</html>
