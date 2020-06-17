@@ -29,7 +29,8 @@ build/
 
 ### VS Code ###
 .vscode/
-
+/node_modules/
+**/node_modules/
 ### TESTNG###
 **/test-output/
 **/logs/
