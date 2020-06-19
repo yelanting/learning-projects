@@ -1,11 +1,5 @@
-function* generator() {
-    const who = yield;
-    console.log("hello " + who);
-}
+type s = string;
 
-const iterator = generator();
+let a: s = "123";
 
-console.log(iterator.next());
-
-
-console.log(iterator.next("TypeScript"));
+console.log(typeof a);
