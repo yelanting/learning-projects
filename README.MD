@@ -9,7 +9,7 @@
 - learning-vue vue的学习
 - learning-g1 关于垃圾收集G1的学习
 - learning-interview-skill 关于面试
-
+- learning-typescript 关于ts的学习
 
 ### 非技术篇
 
