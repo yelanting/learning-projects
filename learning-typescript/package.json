@@ -17,5 +17,9 @@
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.2"
   }
 }

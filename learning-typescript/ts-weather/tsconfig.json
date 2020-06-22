@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "target": "es6", //把es5改成es6
+        "jsx": "react"
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}

@@ -1,5 +1,31 @@
-type s = string;
+namespace Validation {
+    export interface StringValidator {
+        isAcceptable(s: string): boolean;
+    }
 
-let a: s = "123";
+    const lettersRegexp = /^[A-Za-z]+$/;
+    const numberRegexp = /^[0-9]+$/;
 
-console.log(typeof a);
+    export class LettersOnlyValidator implements StringValidator {
+        isAcceptable(s: string) {
+            return lettersRegexp.test(s);
+        }
+    }
+
+    export class ZipCodeValidator implements StringValidator {
+        isAcceptable(s: string) {
+            return s.length === 5 && numberRegexp.test(s);
+        }
+    }
+}
+
+let strings = ["hello", "98025", "101"];
+let validators: { [s: string]: Validation.StringValidator; } = {};
+validators['ZIP CODE'] = new Validation.ZipCodeValidator();
+validators['Letters only'] = new Validation.LettersOnlyValidator();
+
+for (let s of strings) {
+    for (let name in validators) {
+        console.log(`"${s}" - ${validators[name].isAcceptable(s) ? "matches" : "does not match"} ${name}`);
+    }
+}
