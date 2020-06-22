@@ -5,7 +5,8 @@
         "noImplicitAny": false,
         "module": "commonjs",
         "target": "es6", //把es5改成es6
-        "jsx": "react"
+        "jsx": "react",
+        "experimentalDecorators": true,
     },
     "include": [
         "./src/**/*"
