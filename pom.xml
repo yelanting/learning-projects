@@ -41,6 +41,7 @@
 	</properties>
 	<modules>
 		<module>learning-multi-thread</module>
+		<module>learning-jvm</module>
 	</modules>
 
 	<dependencyManagement>
