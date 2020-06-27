@@ -1,0 +1,741 @@
+<!DOCTYPE html><html><head>
+      <title>1.class&#x6587;&#x4EF6;&#x89E3;&#x6784;</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\Administrator\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.5.12\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="center%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84center"><center>&#x5B57;&#x8282;&#x7801;&#x6587;&#x4EF6;&#x7ED3;&#x6784;</center></h1>
+
+<p>Java&#x662F;&#x8DE8;&#x5E73;&#x53F0;&#x7684;&#xFF0C;&#x4F46;&#x662F;Jvm&#x4E0D;&#x662F;&#x8DE8;&#x5E73;&#x53F0;&#x7684;&#xFF0C;&#x4F46;&#x662F;JVM&#x662F;Java&#x8DE8;&#x5E73;&#x53F0;&#x7684;&#x5173;&#x952E;&#x6280;&#x672F;&#x3002;<br>
+&#x53EF;&#x4EE5;&#x8BA9;&#x4E0D;&#x540C;&#x5E73;&#x53F0;&#x7684;jvm&#x52A0;&#x8F7D;&#x540C;&#x4E00;&#x79CD;&#x4E0E;&#x5E73;&#x53F0;&#x65E0;&#x5173;&#x7684;&#x5B57;&#x8282;&#x7801;&#xFF0C;&#x6E90;&#x4EE3;&#x7801;&#x5C31;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x6839;&#x636E;&#x4E0D;&#x540C;&#x5E73;&#x53F0;&#x7F16;&#x8BD1;&#x6210;&#x4E0D;&#x540C;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x771F;&#x5B9E;&#x7684;&#x7B80;&#x5355;&#x7684;class&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x5982;&#x4E0B;:<br>
+<img src="./images/javac%E7%BC%96%E8%AF%91%E5%90%8E%E7%9A%84class%E6%96%87%E4%BB%B6%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9.png" alt="javac&#x7F16;&#x8BD1;&#x540E;&#x7684;class&#x6587;&#x4EF6;&#x6587;&#x672C;&#x5185;&#x5BB9;.png"></p>
+<h2 class="mume-header" id="%E4%B8%80-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84">&#x4E00;&#x3001;&#x6587;&#x4EF6;&#x7ED3;&#x6784;</h2>
+
+<p>JVM&#x89C4;&#x5B9A;&#x7528;u1&#x3001;u2&#x3001;u4&#x4E09;&#x79CD;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x6765;&#x8868;&#x793A;1&#x3001;2&#x3001;4&#x5B57;&#x8282;&#x7684;&#x65E0;&#x7B26;&#x53F7;&#x6574;&#x6570;&#xFF0C;&#x76F8;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x82E5;&#x5E72;&#x6761;&#x6570;&#x636E;&#x96C6;&#x5408;&#x7528;&#x8868;(table)&#x7684;&#x5F62;&#x5F0F;&#x6765;&#x5B58;&#x50A8;&#x3002;&#x8868;&#x793A;&#x4E00;&#x79CD;&#x53D8;&#x957F;&#x7ED3;&#x6784;&#xFF0C;&#x7531;&#x4EE3;&#x8868;&#x957F;&#x5EA6;&#x7684;&#x8868;&#x5934;n&#x548C;&#x7D27;&#x968F;&#x7740;&#x7684;n&#x4E2A;&#x6570;&#x636E;&#x9879;&#x6765;&#x7EC4;&#x6210;&#x3002;class&#x6587;&#x4EF6;&#x65F6;&#x91C7;&#x7528;&#x7C7B;C&#x8BED;&#x8A00;&#x7684;&#x7ED3;&#x6784;&#x4F53;&#x6765;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x3002;</p>
+<pre data-role="codeBlock" data-info="c" class="language-c">ClassFile <span class="token punctuation">{</span>
+    u4 magic<span class="token punctuation">;</span>
+    u2 minor_version<span class="token punctuation">;</span>
+    u2 major_version<span class="token punctuation">;</span>
+    u2 constant_pool_count<span class="token punctuation">;</span>
+    cp_info constant_pool<span class="token punctuation">[</span>constant_pool_count<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    u2 access_flags<span class="token punctuation">;</span>
+    u2 this_class<span class="token punctuation">;</span>
+    u2 super_class<span class="token punctuation">;</span>
+    u2 interfaces_count<span class="token punctuation">;</span>
+    u2 interfaces<span class="token punctuation">[</span>interfaces_count<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    u2 fields_count<span class="token punctuation">;</span>
+    field_info fields<span class="token punctuation">[</span>fields_count<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    u2 methods_count<span class="token punctuation">;</span>
+    method_info methods<span class="token punctuation">[</span>methods_count<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    u2 attributes_count<span class="token punctuation">;</span>
+    attribute_info attributes<span class="token punctuation">[</span>attributes_count<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x7C7B;&#x4F3C;&#x4EE5;&#x4E0A;&#x7684;&#x683C;&#x5F0F;&#x3002;</p>
+<p>class&#x6587;&#x4EF6;&#x7531;&#x4EE5;&#x4E0A;&#x5341;&#x4E2A;&#x90E8;&#x5206;&#x7EC4;&#x6210;&#x3002;</p>
+<ul>
+<li>&#x9B54;&#x6570;&#x3002; Magic Number</li>
+<li>&#x7248;&#x672C;&#x53F7;&#x3002;Minor  Major Version</li>
+<li>&#x5E38;&#x91CF;&#x6C60;&#x3002; Constant Pool</li>
+<li>&#x7C7B;&#x8BBF;&#x95EE;&#x6807;&#x8BB0;&#x3002;Access Flag</li>
+<li>&#x7C7B;&#x7D22;&#x5F15;&#x3002;This Class</li>
+<li>&#x8D85;&#x7C7B;&#x7D22;&#x5F15;&#x3002;Super Class</li>
+<li>&#x63A5;&#x53E3;&#x8868;&#x7D22;&#x5F15;&#x3002;Interface</li>
+<li>&#x5B57;&#x6BB5;&#x8868;&#x3002;Field</li>
+<li>&#x65B9;&#x6CD5;&#x8868;&#x3002;Method</li>
+<li>&#x5C5E;&#x6027;&#x8868;&#x3002;Attribute</li>
+</ul>
+<p>&#x4E00;&#x53E5;&#x987A;&#x53E3;&#x6E9C;&#xFF0C;&#x8BB0;&#x4F4F;10&#x90E8;&#x5206;&#x3002;</p>
+<p>My Very Cute Animal Turns Savage In Full Moon Areas.</p>
+<h2 class="mume-header" id="%E4%BA%8C-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E7%BB%86%E8%A7%A3">&#x4E8C;&#x3001;&#x6587;&#x4EF6;&#x7ED3;&#x6784;&#x7EC6;&#x89E3;</h2>
+
+<h3 class="mume-header" id="21-magic-number">2.1 Magic Number</h3>
+
+<p>&#x9B54;&#x6570;&#x3002;&#x4F7F;&#x7528;&#x6587;&#x4EF6;&#x540D;&#x540E;&#x7F00;&#x6765;&#x533A;&#x5206;&#x6587;&#x4EF6;&#x7C7B;&#x578B;&#xFF0C;&#x6709;&#x65F6;&#x53EF;&#x80FD;&#x4F1A;&#x56E0;&#x4E3A;&#x6587;&#x4EF6;&#x540E;&#x7F00;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#xFF0C;&#x9020;&#x6210;&#x4E0D;&#x662F;&#x975E;&#x5E38;&#x51C6;&#x786E;&#x548C;&#x9760;&#x8C31;&#x3002;&#x7528;&#x9B54;&#x6570;&#x5B9E;&#x73B0;&#xFF0C;&#x662F;&#x4E00;&#x4E9B;&#x6587;&#x4EF6;&#x6765;&#x786E;&#x4FDD;&#x6587;&#x4EF6;&#x7C7B;&#x578B;&#x6B63;&#x786E;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
+<ul>
+<li>PDF.%PDF-(&#x5341;&#x516D;&#x8FDB;&#x5236;:0X255044462D).</li>
+<li>PNG.\x89PNG.(&#x5341;&#x516D;&#x8FDB;&#x5236;:Ox89504E47).</li>
+</ul>
+<p>&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#x7684;&#x5236;&#x5B9A;&#x8005;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x9009;&#x62E9;&#x9B54;&#x6570;&#x503C;&#xFF0C;&#x53EA;&#x8981;&#x9B54;&#x6570;&#x503C;&#x6CA1;&#x6709;&#x88AB;&#x5E7F;&#x6CDB;&#x91C7;&#x7528;&#x4E14;&#x4E0D;&#x4F1A;&#x6DF7;&#x6DC6;&#x5373;&#x53EF;&#x3002;<br>
+&#x56E0;&#x6B64;&#x6309;&#x7167;&#x4E0A;&#x56FE;&#x6765;&#x8BF4;&#xFF0C;OxCAFEBABE&#x662F;JVM&#x8BC6;&#x522B;.class&#x6587;&#x4EF6;&#x7684;&#x6807;&#x5FD7;&#x3002;&#x865A;&#x62DF;&#x5668;&#x5728;&#x52A0;&#x8F7D;&#x7C7B;&#x6587;&#x4EF6;&#x4E4B;&#x524D;&#xFF0C;&#x4F1A;&#x68C0;&#x67E5;&#x8FD9;&#x56DB;&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x662F;0xCAFEBABE&#x5219;&#x4F1A;&#x629B;&#x51FA;java.lang.ClassFormatError&#x5F02;&#x5E38;&#x3002;</p>
+<h3 class="mume-header" id="22-%E7%89%88%E6%9C%AC%E5%8F%B7">2.2 &#x7248;&#x672C;&#x53F7;</h3>
+
+<p>&#x6BCF;&#x6B21;Java&#x53D1;&#x5E03;&#x5927;&#x7248;&#x672C;&#xFF0C;&#x90FD;&#x4F1A;&#x8BA9;&#x4E3B;&#x7248;&#x672C;+1&#x76EE;&#x524D;&#x5E38;&#x7528;&#x7684;java&#x7684;&#x7248;&#x672C;&#x53F7;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;&#x662F;:</p>
+<table>
+<thead>
+<tr>
+<th>Java&#x7248;&#x672C;</th>
+<th>Major Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.4</td>
+<td>48</td>
+</tr>
+<tr>
+<td>1.5</td>
+<td>49</td>
+</tr>
+<tr>
+<td>1.6</td>
+<td>50</td>
+</tr>
+<tr>
+<td>1.7</td>
+<td>51</td>
+</tr>
+<tr>
+<td>1.8</td>
+<td>52</td>
+</tr>
+<tr>
+<td>1.9</td>
+<td>53</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mume-header" id="23-%E5%B8%B8%E9%87%8F%E6%B1%A0">2.3 &#x5E38;&#x91CF;&#x6C60;</h3>
+
+<p><img src="./images/%E5%B8%B8%E9%87%8F%E6%B1%A0%E4%B8%AD%E7%9A%84%E8%A1%A8%E7%B1%BB%E5%9E%8B.png" alt="&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x7684;&#x8868;&#x7C7B;&#x578B;.png"></p>
+<p>&#x8FD9;&#x662F;&#x7C7B;&#x6587;&#x4EF6;&#x4E2D;&#x6700;&#x590D;&#x6742;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;<br>
+&#x5E38;&#x91CF;&#x6C60;&#x662F;&#x7C7B;&#x6587;&#x4EF6;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53D8;&#x957F;&#x7ED3;&#x6784;&#x3002;&#x5E38;&#x91CF;&#x6C60;&#x5206;&#x4E24;&#x90E8;&#x5206;&#x3002;</p>
+<ul>
+<li>&#x5E38;&#x91CF;&#x6C60;&#x5927;&#x5C0F;&#x3002;<br>
+&#x65E2;&#x7136;&#x662F;&#x6C60;&#xFF0C;&#x5C31;&#x6709;&#x5927;&#x5C0F;&#xFF0C;&#x5E38;&#x91CF;&#x6C60;&#x5927;&#x5C0F;&#x7531;&#x4E24;&#x4E2A;&#x5B57;&#x8282;&#x8868;&#x793A;&#x3002;&#x5047;&#x8BBE;&#x5E38;&#x91CF;&#x6C60;&#x5927;&#x5C0F;&#x662F;n,&#x90A3;&#x4E48;&#x5E38;&#x91CF;&#x6C60;&#x7684;&#x771F;&#x6B63;&#x6709;&#x6548;&#x7D22;&#x5F15;&#x5C31;&#x662F;<br>
+1-n-1&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5982;&#x679C;constant_pool_count&#x7B49;&#x4E8E;10&#xFF0C;&#x90A3;&#x4E48;&#x7D22;&#x5F15;&#x5C31;&#x662F;1~9&#x3002;0&#x5C5E;&#x4E8E;&#x4FDD;&#x7559;&#x7D22;&#x5F15;&#xFF0C;&#x5728;&#x7279;&#x6B8A;&#x65F6;&#x4F7F;&#x7528;&#x3002;</li>
+<li>&#x5E38;&#x91CF;&#x6C60;&#x9879;&#x3002;<br>
+&#x6700;&#x591A;&#x5305;&#x542B;n-1&#x4E2A;&#x5143;&#x7D20;&#x3002;long&#x548C;double&#x7C7B;&#x578B;&#x7684;&#x5E38;&#x91CF;&#x4F1A;&#x5360;&#x7528;&#x4E24;&#x4E2A;&#x7D22;&#x5F15;&#x4F4D;&#x7F6E;&#xFF0C;&#x5982;&#x679C;&#x5E38;&#x91CF;&#x6C60;&#x5305;&#x542B;&#x4E86;&#x8FD9;&#x4E24;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x5143;&#x7D20;&#xFF0C;<br>
+&#x5B9E;&#x9645;&#x7684;&#x5E38;&#x91CF;&#x6C60;&#x7684;&#x5143;&#x7D20;&#x4E2A;&#x6570;&#x4F1A;&#x5C11;&#x4E8E;n-1&#x4E2A;&#x3002;</li>
+</ul>
+<p>&#x5E38;&#x91CF;&#x6C60;&#x7684;&#x9879;&#xFF0C;&#x901A;&#x5E38;&#x7531;&#x5982;&#x4E0B;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x6765;&#x8868;&#x793A;.</p>
+<pre data-role="codeBlock" data-info="c" class="language-c">cp_info<span class="token punctuation">{</span>
+    u1 tag<span class="token punctuation">;</span>
+    u1 info<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x6BCF;&#x4E2A;&#x6570;&#x636E;&#x9879;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x8868;&#x793A;&#x5E38;&#x91CF;&#x9879;&#x7684;tag&#xFF08;&#x7C7B;&#x578B;&#xFF09;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x51E0;&#x4E2A;&#x5B57;&#x8282;&#x8868;&#x793A;&#x5E38;&#x91CF;&#x9879;&#x7684;&#x5177;&#x4F53;&#x5185;&#x5BB9;&#x3002;<br>
+JAVA&#x865A;&#x62DF;&#x673A;&#x76EE;&#x524D;&#x4E00;&#x5171;&#x5B9A;&#x4E49;14&#x4E2A;&#x5E38;&#x91CF;&#x9879;&#x7684;tag&#x7C7B;&#x578B;&#xFF0C;&#x90FD;&#x4EE5;CONSTANT_&#x5F00;&#x5934;&#xFF0C;&#x4EE5;info&#x7ED3;&#x5C3E;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x60F3;&#x67E5;&#x770B;&#x7C7B;&#x6587;&#x4EF6;&#x7684;&#x5E38;&#x91CF;&#x6C60;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;javap&#x7684;&#x65F6;&#x5019;&#x52A0;&#x4E0A;-v&#x6216;&#x8005;--verbose&#x53C2;&#x6570;&#x3002;</p>
+<h4 class="mume-header" id="231-constant_integer_info%E5%92%8Cconstant_float_info">2.3.1 CONSTANT_Integer_info&#x548C;CONSTANT_Float_info</h4>
+
+<p>&#x5206;&#x522B;&#x8868;&#x793A;int&#x548C;float&#x7C7B;&#x578B;&#x7684;&#x5E38;&#x91CF;&#xFF0C;&#x90FD;&#x7528;4&#x4E2A;&#x5B57;&#x8282;&#x6765;&#x8868;&#x6570;&#x503C;&#x5E38;&#x91CF;&#x3002;</p>
+<p>java&#x56FA;&#x5B9A;&#x4E86;boolean&#x3001;byte&#x3001;short&#x3001;char&#x7C7B;&#x578B;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x5728;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x5F53;&#x505A;int&#x5904;&#x7406;&#x3002;</p>
+<h4 class="mume-header" id="232-constant_long_info%E5%92%8Cconstant_double_info">2.3.2 CONSTANT_Long_info&#x548C;CONSTANT_Double_info</h4>
+
+<p>&#x90FD;&#x7528;8&#x5B57;&#x8282;&#x8868;&#x793A;&#x5177;&#x4F53;&#x7684;&#x5E38;&#x91CF;&#x6570;&#x503C;&#x3002;<br>
+&#x8BF7;&#x8BB0;&#x5F97;Long&#x548C;Double&#x7684;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x4F1A;&#x5360;&#x7528;&#x4E24;&#x4E2A;&#x5E38;&#x91CF;&#x6C60;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
+<h4 class="mume-header" id="233-constant_utf8_info">2.3.3 CONSTANT_Utf8_info</h4>
+
+<p>&#x5B58;&#x50A8;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<pre data-role="codeBlock" data-info="c" class="language-c">CONSTANT_Utf8_info<span class="token punctuation">{</span>
+    u1 tag<span class="token punctuation">;</span>
+    u2 length<span class="token punctuation">;</span>
+    u1 bytes<span class="token punctuation">[</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x7B2C;&#x4E00;&#x90E8;&#x5206;&#x662F;tag&#xFF0C;&#x503C;&#x4E3A;1&#xFF1B;<br>
+&#x7B2C;&#x4E8C;&#x90E8;&#x5206;&#x662F;length&#xFF0C;&#x4E0D;&#x4EE3;&#x8868;&#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;&#xFF0C;&#x800C;&#x662F;&#x8868;&#x793A;&#x7B2C;&#x4E09;&#x90E8;&#x5206;&#x5B57;&#x8282;&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#xFF1B;<br>
+&#x7B2C;&#x4E09;&#x90E8;&#x5206;&#x91C7;&#x7528;MUTF-8&#x7F16;&#x7801;&#x957F;&#x5EA6;&#x7684;length&#x957F;&#x5EA6;&#x7684;&#x5B57;&#x8282;&#x6570;&#x7EC4;&#x3002;</p>
+<p><strong>UTF8&#x548C;MUTF8</strong>:</p>
+<ul>
+<li>UTF8&#x662F;&#x4E00;&#x79CD;&#x53D8;&#x957F;&#x7684;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#x3002;1~4&#x4E2A;&#x5B57;&#x8282;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x3002;
+<ul>
+<li>&#x4F20;&#x7EDF;&#x7684;ASCII&#x7F16;&#x7801;&#x5B57;&#x7B26;&#xFF08;0x0001~Ox007E&#xFF09;&#xFF0C;UTF8&#x7528;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x8868;&#x793A;&#x3002;&#x82F1;&#x6587;&#x5B57;&#x6BCD;&#x7684;ASCII&#x548C;UTF-8&#x7ED3;&#x679C;&#x4E00;&#x6837;&#x3002;</li>
+<li>0080~07FF&#x3002;2&#x4E2A;&#x5B57;&#x8282;&#x8868;&#x793A;&#x3002;</li>
+<li>0000 0800 ~ 0000 FFFF&#x3002;3&#x4E2A;&#x5B57;&#x8282;&#x8868;&#x793A;&#x3002;</li>
+<li>0001 0000 ~ 0010 FFFF&#x3002;4&#x4E2A;&#x5B57;&#x8282;&#x8868;&#x793A;&#x3002;</li>
+</ul>
+</li>
+<li>MUTF8.
+<ul>
+<li>2&#x4E2A;&#x5B57;&#x8282;&#x8868;&#x793A;&#x7A7A;&#x5B57;&#x7B26;&quot;\0&quot;,&#x628A;&#x524D;&#x9762;&#x4ECB;&#x7ECD;&#x7684;&#x53CC;&#x5B57;&#x8282;&#x8868;&#x793A;&#x683C;&#x5F0F;&#x4E2D;&#x7684;x&#x5168;&#x90E8;&#x586B;0&#x3002;&#x8FD9;&#x6837;&#x505A;&#x7684;&#x539F;&#x56E0;&#x662F;&#x5728;&#x5176;&#x4ED6;&#x8BED;&#x8A00;&#x4E2D;&#x4F1A;&#x628A;&#x7A7A;&#x5B57;&#x7B26;&#x5F53;&#x505A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x7ED3;&#x675F;&#xFF0C;&#x800C;MUTF8&#x8FD9;&#x79CD;&#x5904;&#x7406;<br>
+&#x7684;&#x65B9;&#x5F0F;&#x4F1A;&#x4FDD;&#x8BC1;&#x5B57;&#x7B26;&#x4E32;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x7A7A;&#x5B57;&#x7B26;&#xFF0C;C&#x8BED;&#x8A00;&#x5904;&#x7406;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x4F1A;&#x610F;&#x5916;&#x622A;&#x65AD;&#x3002;</li>
+<li>MUTF8&#x53EA;&#x7528;&#x5230;&#x4E86;&#x6807;&#x51C6;UTF8&#x7684;&#x7F16;&#x7801;&#x4E2D;&#x7684;&#x5355;&#x5B57;&#x8282;&#x3001;&#x53CC;&#x5B57;&#x8282;&#x3001;&#x4E09;&#x5B57;&#x8282;&#x8868;&#x793A;&#x65B9;&#x6CD5;&#xFF0C;&#x6CA1;&#x6709;&#x7528;&#x5230;4&#x5B57;&#x8282;&#x7684;&#x8868;&#x793A;&#x65B9;&#x5F0F;&#x3002;<br>
+&#x7F16;&#x7801;&#x5728;U+FFFF&#x4E4B;&#x4E0A;&#x7684;&#x5B57;&#x7B26;&#xFF0C;Java&#x91C7;&#x7528;&#x201C;&#x4EE3;&#x7406;&#x5BF9;&#x201D;&#x901A;&#x8FC7;2&#x4E2A;&#x5B57;&#x7B26;&#x8868;&#x793A;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h4 class="mume-header" id="234-constant_string_info">2.3.4 CONSTANT_String_info</h4>
+
+<p>&#x7528;&#x6765;&#x8868;&#x793A;String&#x7C7B;&#x578B;&#x7684;&#x5E38;&#x91CF;&#x5BF9;&#x8C61;&#x3002;&#x5B83;&#x548C;UTF8_Info&#x7684;&#x533A;&#x522B;&#x662F;&#x540E;&#x8005;&#x5B58;&#x50A8;&#x4E86;&#x5B57;&#x7B26;&#x4E32;&#x771F;&#x6B63;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x800C;CONSTANT_String_info&#x5E76;&#x4E0D;&#x5305;&#x542B;<br>
+&#x771F;&#x6B63;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x4EC5;&#x4EC5;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;CONSTANT_Utf8_info&#x5E38;&#x91CF;&#x7C7B;&#x578B;&#x7684;&#x7D22;&#x5F15;string_index&#xFF0C;&#x5B83;&#x91CC;&#x9762;&#x624D;&#x662F;&#x771F;&#x6B63;&#x5B58;&#x50A8;&#x4E86;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x5185;&#x5BB9;&#x3002;</p>
+<h4 class="mume-header" id="235-constant_class_info">2.3.5 CONSTANT_Class_info</h4>
+
+<p>&#x8FD9;&#x4E2A;&#x7ED3;&#x6784;&#x8868;&#x793A;&#x7C7B;&#x6216;&#x63A5;&#x53E3;&#xFF0C;&#x7ED3;&#x6784;&#x548C;String_info&#x76F8;&#x540C;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x662F;tag&#x7684;&#x503C;&#xFF0C;&#x56FA;&#x5B9A;&#x4E3A;7&#x3002;name_index&#x4E2D;&#x5B58;&#x653E;&#x7684;&#x662F;&#x4E00;&#x4E2A;CONSTANT_Utf8_info&#x7684;&#x503C;&#xFF0C;&#x5B83;&#x771F;&#x6B63;&#x5B58;&#x7684;&#x662F;&#x7C7B;&#x6216;&#x63A5;&#x53E3;&#x7684;&#x5168;&#x9650;&#x5B9A;&#x540D;&#x3002;</p>
+<h4 class="mume-header" id="236-constant_nameandtype_info">2.3.6 CONSTANT_NameAndType_info</h4>
+
+<p>&#x8868;&#x793A;&#x5B57;&#x6BB5;&#x6216;&#x8005;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre data-role="codeBlock" data-info="c" class="language-c">CONSTANT_NameAndType_info<span class="token punctuation">{</span>
+    u1 tag<span class="token punctuation">;</span>
+    u2 name_index<span class="token punctuation">;</span>
+    u2 descriptor_index<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</pre><p>tag&#x56FA;&#x5B9A;&#x4E3A;12&#xFF0C;<br>
+name_index&#x548C;descriptro_index&#x90FD;&#x6307;&#x5411;&#x4E00;&#x4E2A;utf8_info&#x7684;&#x7D22;&#x5F15;&#xFF0C;<br>
+name_index&#x8868;&#x793A;&#x5B57;&#x6BB5;&#x6216;&#x65B9;&#x6CD5;&#x7684;&#x540D;&#x5B57;<br>
+descriptor_index&#x8868;&#x793A;&#x5B57;&#x6BB5;&#x6216;&#x8005;&#x65B9;&#x6CD5;&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#xFF0C;&#x7528;&#x6765;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x6216;&#x8005;&#x65B9;&#x6CD5;&#x7684;&#x7C7B;&#x578B;&#x3002;</p>
+<h4 class="mume-header" id="237-constant_fieldref_info-constant_methodref_info%E5%92%8Cconstant_interfacemethodref_info">2.3.7 CONSTANT_Fieldref_info&#x3001;CONSTANT_Methodref_info&#x548C;Constant_interfaceMethodref_info</h4>
+
+<p>&#x8FD9;&#x4E09;&#x79CD;&#x6BD4;&#x8F83;&#x7C7B;&#x4F3C;&#xFF0C;&#x7ED3;&#x6784;&#x5927;&#x81F4;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="c" class="language-c">CONSTANT_Fieldref_info<span class="token punctuation">{</span>
+    u1 tag<span class="token punctuation">;</span>
+    u2 class_index<span class="token punctuation">;</span>
+    u2 name_and_type_index<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+CONSTANT_Methodref_info<span class="token punctuation">{</span>
+    u1 tag<span class="token punctuation">;</span>
+    u2 class_index<span class="token punctuation">;</span>
+    u2 name_and_type_index<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+CONSTANT_InterfaceMethodref_info<span class="token punctuation">{</span>
+    u1 tag<span class="token punctuation">;</span>
+    u2 class_index<span class="token punctuation">;</span>
+    u2 name_and_type_index<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</pre><h4 class="mume-header" id="238-constant_methodtype_info-constant_methodhandle_info-constant_invokedynamic_info">2.3.8 CONSTANT_MethodType_info&#x3001; CONSTANT_MethodHandle_info &#x3001;CONSTANT_InvokeDynamic_info</h4>
+
+<p>&#x8FD9;&#x662F;Java7&#x4E4B;&#x540E;&#x65B0;&#x589E;&#x7684;&#xFF0C;&#x4E3A;&#x4E86;&#x652F;&#x6301;&#x52A8;&#x6001;&#x8BED;&#x8A00;&#x7ED3;&#x6784;&#x3002;<br>
+CONSTANT_InvokeDynamic_info: &#x4E3B;&#x8981;&#x4F5C;&#x7528;&#x662F;&#x4E3A;invokedynamic&#x6307;&#x4EE4;&#x63D0;&#x4F9B;&#x542F;&#x52A8;&#x5F15;&#x5BFC;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre data-role="codeBlock" data-info="c" class="language-c">CONSTANT_InvokeDynamic_info<span class="token punctuation">{</span>
+    u1 tag<span class="token punctuation">;</span>
+    u2 bootstrap_method_attr_index<span class="token punctuation">;</span>
+    u2 name_and_type_index<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</pre><p>tag:&#x56FA;&#x5B9A;&#x4E3A;18&#xFF1B;<br>
+bootstrap_method_attr_index:&#x6307;&#x5411;&#x5F15;&#x5BFC;&#x65B9;&#x6CD5;&#x8868;&#x6570;&#x7EC4;&#x7684;&#x7D22;&#x5F15;<br>
+name_and_type_index&#xFF1A;&#x6307;&#x5411;&#x4E00;&#x4E2A;&#x7D22;&#x5F15;&#xFF0C;&#x8868;&#x793A;&#x65B9;&#x6CD5;&#x63CF;&#x8FF0;&#x7B26;&#x3002;</p>
+<h3 class="mume-header" id="24-access-flag">2.4 Access Flag</h3>
+
+<p>&#x7D27;&#x968F;&#x5E38;&#x91CF;&#x6C60;&#x4E4B;&#x540E;&#x3002;&#x7528;&#x6765;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x7C7B;&#x662F;final&#x3001;abstract&#x7B49;&#xFF0C;&#x4E24;&#x4E2A;&#x5B57;&#x8282;&#x8868;&#x793A;&#xFF0C;&#x603B;&#x5171;&#x6709;16&#x4E2A;&#x6807;&#x8BB0;&#x4F4D;&#x53EF;&#x4F9B;&#x4F7F;&#x7528;&#xFF0C;&#x76EE;&#x524D;&#x53EA;&#x7528;&#x4E86;8&#x4E2A;&#x3002;<br>
+<img src="./images/%E8%AE%BF%E9%97%AE%E6%A0%87%E5%BF%97.png" alt="&#x8BBF;&#x95EE;&#x6807;&#x5FD7;.png"></p>
+<h3 class="mume-header" id="25-this_class-super_name-interfaces">2.5 this_class&#x3001;super_name&#x3001;interfaces</h3>
+
+<p>&#x7528;&#x6765;&#x786E;&#x5B9A;&#x7C7B;&#x7684;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#x3002;this_class&#x8868;&#x793A;&#x7C7B;&#x7D22;&#x5F15;&#x3001;super_name&#x8868;&#x793A;&#x76F4;&#x63A5;&#x7236;&#x7C7B;&#x7684;&#x7D22;&#x5F15;&#x3001;interfaces&#x8868;&#x793A;&#x7C7B;&#x6216;&#x8005;&#x63A5;&#x53E3;&#x7684;&#x76F4;&#x63A5;&#x7236;&#x63A5;&#x53E3;&#x3002;</p>
+<h3 class="mume-header" id="26-%E5%AD%97%E6%AE%B5%E8%A1%A8">2.6 &#x5B57;&#x6BB5;&#x8868;</h3>
+
+<p>&#x7D27;&#x968F;&#x63A5;&#x53E3;&#x7D22;&#x5F15;&#x8868;&#x4E4B;&#x540E;&#x7684;&#x5B57;&#x6BB5;&#x8868;&#x3002;&#x7C7B;&#x4E2D;&#x7684;&#x5B57;&#x6BB5;&#x88AB;&#x5B58;&#x50A8;&#x5230;&#x8FD9;&#x4E2A;&#x96C6;&#x5408;&#xFF0C;&#x5305;&#x62EC;&#x9759;&#x6001;&#x548C;&#x975E;&#x9759;&#x6001;&#x3002;</p>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token punctuation">{</span>
+    u2 fields_count<span class="token punctuation">;</span>
+    field_info fields<span class="token punctuation">[</span>fields_count<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</pre><p>&#x5B57;&#x6BB5;&#x8868;&#x4E5F;&#x662F;&#x53D8;&#x957F;&#x7ED3;&#x6784;&#xFF0C;fields_count&#x8868;&#x793A;field&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x7684;fields&#x8868;&#x793A;&#x5B57;&#x6BB5;&#x96C6;&#x5408;&#xFF0C;&#x5171;&#x6709;fields_count&#x4E2A;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x7528;field_info&#x8868;&#x793A;&#x3002;</p>
+<h4 class="mume-header" id="261-field_info">2.6.1 field_info</h4>
+
+<pre data-role="codeBlock" data-info="c" class="language-c">field_info<span class="token punctuation">{</span>
+    u2 access_flags<span class="token punctuation">;</span>
+    u2 name_index<span class="token punctuation">;</span>
+    u2 descriptor_index<span class="token punctuation">;</span>
+    u2 attributes_count<span class="token punctuation">;</span>
+    acttribute_info attributes<span class="token punctuation">[</span>attributes_count<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</pre><p>access_flags:&#x5B57;&#x6BB5;&#x7684;&#x8BBF;&#x95EE;&#x6807;&#x8BB0;&#xFF0C;&#x6807;&#x8BC6;public&#x3001;static&#x3001;final&#x7B49;&#xFF1B;<br>
+name_index&#x8868;&#x793A;&#x5B57;&#x6BB5;&#x540D;&#xFF0C;&#x6307;&#x5411;&#x5E38;&#x91CF;&#x6C60;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#xFF1B;<br>
+descriptor_index&#x8868;&#x793A;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x7D22;&#x5F15;&#xFF0C;&#x6307;&#x5411;&#x5E38;&#x91CF;&#x6C60;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#xFF1B;<br>
+acttribute_info&#x8868;&#x793A;&#x5C5E;&#x6027;&#x4E2A;&#x6570;&#x548C;&#x5C5E;&#x6027;&#x96C6;&#x5408;&#xFF1B;</p>
+<h4 class="mume-header" id="262-%E5%AD%97%E6%AE%B5%E8%AE%BF%E9%97%AE%E6%A0%87%E8%AE%B0">2.6.2 &#x5B57;&#x6BB5;&#x8BBF;&#x95EE;&#x6807;&#x8BB0;</h4>
+
+<p>&#x548C;&#x7C7B;&#x4E00;&#x6837;&#xFF0C;&#x5B57;&#x6BB5;&#x4E5F;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x5B57;&#x6BB5;&#x8BBF;&#x95EE;&#x6807;&#x8BB0;&#xFF0C;&#x4F46;&#x662F;&#x6BD4;&#x7C7B;&#x66F4;&#x4E30;&#x5BCC;&#x3002;</p>
+<p><img src="./images/jvm-%E5%AD%97%E6%AE%B5%E8%AE%BF%E9%97%AE%E5%B1%9E%E6%80%A7.png" alt="jvm-&#x5B57;&#x6BB5;&#x8BBF;&#x95EE;&#x5C5E;&#x6027;.png"></p>
+<p>&#x4ED6;&#x4EEC;&#x4E4B;&#x95F4;&#x4E5F;&#x4E0D;&#x662F;&#x968F;&#x610F;&#x7EC4;&#x5408;&#x7684;&#xFF0C;&#x662F;&#x9700;&#x8981;&#x7B26;&#x5408;&#x8BED;&#x4E49;&#x3002;</p>
+<h4 class="mume-header" id="263-%E5%AD%97%E6%AE%B5%E6%8F%8F%E8%BF%B0%E7%AC%A6">2.6.3 &#x5B57;&#x6BB5;&#x63CF;&#x8FF0;&#x7B26;</h4>
+
+<p>&#x7528;&#x6765;&#x8868;&#x793A;&#x67D0;&#x4E2A;field&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x6BD4;&#x5982;&#x5728;jvm&#x4E2D;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;int&#x7C7B;&#x578B;&#x7684;&#x5B57;&#x6BB5;&#x65F6;&#xFF0C;&#x7C7B;&#x6587;&#x4EF6;&#x5B58;&#x50A8;&#x7684;&#x7C7B;&#x578B;&#x5E76;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x5B57;&#x7B26;&#x4E32;int&#xFF0C;&#x800C;&#x662F;&#x66F4;&#x7B80;&#x5355;&#x7684;I.<br>
+&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x4E09;&#x5927;&#x7C7B;:</p>
+<ul>
+<li>&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x3002;&#x7528;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x8868;&#x793A;&#xFF0C;&#x6BD4;&#x5982;J&#x5BF9;&#x5E94;long&#xFF0C;B&#x5BF9;&#x5E94;byte&#x3002;</li>
+<li>&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x3002;L&#x8868;&#x793A;&#x3002;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x591A;&#x4E2A;&#x8FDE;&#x7EED;&#x7684;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x51FA;&#x73B0;&#x6DF7;&#x4E71;&#xFF0C;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x6700;&#x540E;&#x90FD;&#x52A0;&#x4E00;&#x4E2A;&#x5206;&#x53F7;&quot;;&quot;&#x4F5C;&#x4E3A;&#x7ED3;&#x675F;&#x3002;<br>
+&#x6BD4;&#x5982;String&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#x4E3A;&quot;Ljava/lang/String;&quot;</li>
+<li>&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#x3002;JVM&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x524D;&#x7F6E;&#x7684;[&#x6765;&#x8868;&#x793A;&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#xFF0C;&#x6BD4;&#x5982;int[]&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#x4E3A;[I&#x3002;&#x591A;&#x7EF4;&#x6570;&#x7EC4;&#x77E5;&#x8BC6;&#x589E;&#x52A0;&#x4E86;&#x51E0;&#x4E2A;[&#x800C;&#x5DF2;&#x3002;&#x6BD4;&#x5982;Object[][][]&#x7684;&#x63CF;&#x8FF0;&#x7B26;<br>
+&#x4E3A;[[[Ljava/lang/Object;</li>
+</ul>
+<p><img src="./images/%E5%AD%97%E6%AE%B5%E7%B1%BB%E5%9E%8B%E6%8F%8F%E8%BF%B0%E7%AC%A6%E6%98%A0%E5%B0%84%E8%A1%A8.png" alt="&#x5B57;&#x6BB5;&#x7C7B;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x6620;&#x5C04;&#x8868;.png"></p>
+<h4 class="mume-header" id="264-%E5%AD%97%E6%AE%B5%E5%B1%9E%E6%80%A7">2.6.4 &#x5B57;&#x6BB5;&#x5C5E;&#x6027;</h4>
+
+<p>&#x4E0E;&#x5B57;&#x6BB5;&#x7684;&#x5C5E;&#x6027;&#x76F8;&#x5173;&#x7684;&#xFF0C;&#x5305;&#x62EC;ConstantValue&#x3001;Synthetic&#x3001;Signature&#x3001;Deprecated&#x3001;RuntimeVisibleAnnotations&#x548C;RuntimeInvisibleAnnotations&#x3002;</p>
+<h3 class="mume-header" id="27-%E6%96%B9%E6%B3%95%E8%A1%A8">2.7 &#x65B9;&#x6CD5;&#x8868;</h3>
+
+<p>&#x548C;&#x524D;&#x9762;&#x5C5E;&#x6027;&#x7C7B;&#x4F3C;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x65B9;&#x6CD5;&#x4F1A;&#x5B58;&#x50A8;&#x5728;&#x8FD9;&#x91CC;&#x3002;</p>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token punctuation">{</span>
+    u2 methods_count<span class="token punctuation">;</span>
+    method_info methods<span class="token punctuation">[</span>methods_count<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>methods_count&#x8868;&#x793A;&#x65B9;&#x6CD5;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x7684;methods&#x4EE3;&#x8868;&#x65B9;&#x6CD5;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x5171;&#x6709;methods_count&#x4E2A;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x7528;method_info&#x8868;&#x793A;&#x3002;</p>
+<h4 class="mume-header" id="271-method_info%E7%BB%93%E6%9E%84">2.7.1 method_info&#x7ED3;&#x6784;</h4>
+
+<pre data-role="codeBlock" data-info="c" class="language-c">method_info<span class="token punctuation">{</span>
+    u2 access_flags<span class="token punctuation">;</span>
+    u2 name_index<span class="token punctuation">;</span>
+    u2 descriptor_index<span class="token punctuation">;</span>
+    u2 attributes_count<span class="token punctuation">;</span>
+    attribute_info attributes<span class="token punctuation">[</span>attributes_count<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</pre><p>name_index<br>
+descriptor_index &#x5206;&#x522B;&#x8868;&#x793A;&#x65B9;&#x6CD5;&#x540D;&#x548C;&#x65B9;&#x6CD5;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x7D22;&#x5F15;&#x503C;&#xFF0C;&#x6307;&#x5411;&#x5E38;&#x91CF;&#x6C60;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x3002;</p>
+<p>attributes_count&#x3001;attribute_info&#x8868;&#x793A;&#x65B9;&#x6CD5;&#x76F8;&#x5173;&#x5C5E;&#x6027;&#x7684;&#x4E2A;&#x6570;&#x548C;&#x5C5E;&#x6027;&#x96C6;&#x5408;&#xFF0C;&#x5305;&#x542B;&#x5F88;&#x591A;&#x4FE1;&#x606F;&#xFF0C;&#x6BD4;&#x5982;&#x65B9;&#x6CD5;&#x5185;&#x90E8;&#x7684;&#x5B57;&#x8282;&#x7801;&#x5C31;&#x653E;&#x5728;code&#x5C5E;&#x6027;&#x3002;</p>
+<h4 class="mume-header" id="272-%E6%96%B9%E6%B3%95%E8%AE%BF%E9%97%AE%E6%A0%87%E8%AE%B0">2.7.2 &#x65B9;&#x6CD5;&#x8BBF;&#x95EE;&#x6807;&#x8BB0;</h4>
+
+<p>&#x65B9;&#x6CD5;&#x7684;&#x8BBF;&#x95EE;&#x6807;&#x8BB0;&#x6BD4;&#x7C7B;&#x548C;&#x5B57;&#x6BB5;&#x66F4;&#x4E30;&#x5BCC;&#xFF0C;12&#x4E2A;&#x3002;</p>
+<p><img src="./images/%E6%96%B9%E6%B3%95%E8%AE%BF%E9%97%AE%E6%A0%87%E8%AE%B0.png" alt="&#x65B9;&#x6CD5;&#x8BBF;&#x95EE;&#x6807;&#x8BB0;.png"></p>
+<h4 class="mume-header" id="273-%E6%96%B9%E6%B3%95%E5%90%8D%E5%92%8C%E6%8F%8F%E8%BF%B0%E7%AC%A6">2.7.3 &#x65B9;&#x6CD5;&#x540D;&#x548C;&#x63CF;&#x8FF0;&#x7B26;</h4>
+
+<p>&#x65B9;&#x6CD5;&#x63CF;&#x8FF0;&#x7B26;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x6240;&#x9700;&#x8981;&#x7684;&#x53C2;&#x6570;&#x548C;&#x8FD4;&#x56DE;&#x503C;&#x3002;</p>
+<h4 class="mume-header" id="274-%E6%96%B9%E6%B3%95%E5%B1%9E%E6%80%A7%E8%A1%A8">2.7.4 &#x65B9;&#x6CD5;&#x5C5E;&#x6027;&#x8868;</h4>
+
+<p>&#x58F0;&#x660E;&#x7684;&#x5F02;&#x5E38;&#x3001;&#x65B9;&#x6CD5;&#x7684;&#x5B57;&#x8282;&#x7801;&#x3001;&#x662F;&#x5426;&#x8FC7;&#x671F;&#x6807;&#x8BB0;&#x7B49;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x5C5E;&#x6027;&#x4E2D;&#x5B58;&#x50A8;&#x3002;&#x6BD4;&#x8F83;&#x91CD;&#x8981;&#x7684;&#x5C5E;&#x6027;&#x6709;Code&#x548C;Exceptions&#x7B49;&#x3002;</p>
+<h3 class="mume-header" id="28-%E5%B1%9E%E6%80%A7%E8%A1%A8">2.8 &#x5C5E;&#x6027;&#x8868;</h3>
+
+<p>&#x65B9;&#x6CD5;&#x8868;&#x4E4B;&#x540E;&#x7684;&#x89E3;&#x6784;&#x65F6;class&#x6587;&#x4EF6;&#x7684;&#x6700;&#x540E;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x5C5E;&#x6027;&#x8868;&#x3002;&#x5C5E;&#x6027;&#x51FA;&#x73B0;&#x7684;&#x5730;&#x65B9;&#x5F88;&#x5E7F;&#x6CDB;&#xFF0C;&#x4E0D;&#x53EA;&#x51FA;&#x73B0;&#x5728;&#x5B57;&#x6BB5;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x9876;&#x5C42;&#x7684;class&#x6587;&#x4EF6;&#x4E5F;&#x4F1A;&#x51FA;&#x73B0;&#x3002;</p>
+<p>&#x5C5E;&#x6027;&#x8868;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token punctuation">{</span>
+    u2 attributes_count<span class="token punctuation">;</span>
+    attribute_info attributes<span class="token punctuation">[</span>attributes_count<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+attribute_info<span class="token punctuation">{</span>
+    u2 attribute_name_index<span class="token punctuation">;</span>
+    u4 attribute_length<span class="token punctuation">;</span>
+    u1 info<span class="token punctuation">[</span>attribute_length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</pre><p>attribute_name_index&#x6307;&#x5411;&#x5E38;&#x91CF;&#x6C60;&#x7D22;&#x5F15;&#xFF0C;&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x7D22;&#x5F15;&#x5F97;&#x5230;attribute&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x4E24;&#x90E8;&#x5206;&#x8868;&#x793A;info<br>
+&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#x548C;&#x5177;&#x4F53;byte&#x6570;&#x7EC4;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<h4 class="mume-header" id="281-constantvalue%E5%B1%9E%E6%80%A7">2.8.1 ConstantValue&#x5C5E;&#x6027;</h4>
+
+<p>&#x51FA;&#x73B0;&#x5728;field_info&#x4E2D;&#xFF0C;&#x8868;&#x793A;&#x9759;&#x6001;&#x53D8;&#x91CF;&#x7684;&#x521D;&#x59CB;&#x503C;&#x3002;</p>
+<pre data-role="codeBlock" data-info="c" class="language-c">ConstantValue_attribute<span class="token punctuation">{</span>
+    u2 attribute_name_index<span class="token punctuation">;</span>
+    <span class="token comment">//&#x56FA;&#x5B9A;&#x4E3A;2&#xFF0C;&#x56E0;&#x4E3A;&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x5185;&#x5BB9;&#x53EA;&#x4F1A;&#x6709;&#x4E24;&#x4E2A;&#x5B57;&#x8282;&#x5927;&#x5C0F;&#x3002;</span>
+    u4 attribute_length<span class="token punctuation">;</span>
+    u2 constantvalue_index<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>constantvalue_index&#x6307;&#x5411;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x5177;&#x4F53;&#x7684;&#x5E38;&#x91CF;&#x503C;&#x7D22;&#x5F15;&#xFF0C;&#x6839;&#x636E;&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#x4E0D;&#x5BB9;&#xFF0C;&#x6307;&#x5411;&#x7684;&#x5E38;&#x91CF;&#x503C;&#x4E5F;&#x4E0D;&#x540C;&#x3002;&#x5982;&#x679C;&#x53D8;&#x91CF;&#x662F;long&#x7C7B;&#x578B;&#xFF0C;&#x5219;&#x6307;&#x5411;CONSTANT_Long_info&#x7C7B;&#x578B;&#x7684;&#x5E38;&#x91CF;&#x3002;</p>
+<h4 class="mume-header" id="282-code">2.8.2 Code</h4>
+
+<p>&#x7C7B;&#x6587;&#x4EF6;&#x4E2D;&#x6700;&#x91CD;&#x8981;&#x7684;&#x7EC4;&#x6210;&#x90E8;&#x5206;&#xFF0C;&#x5305;&#x542B;&#x65B9;&#x6CD5;&#x7684;&#x5B57;&#x8282;&#x7801;&#xFF0C;&#x9664;&#x4E86;native&#x548C;abstract&#x65B9;&#x6CD5;&#x4EE5;&#x5916;&#xFF0C;&#x6BCF;&#x4E2A;method&#x90FD;&#x6709;&#x4E14;&#x4EC5;&#x6709;&#x4E00;&#x4E2A;Code&#x5C5E;&#x6027;&#x3002;</p>
+<pre data-role="codeBlock" data-info="c" class="language-c">Code_attribute<span class="token punctuation">{</span>
+    u2 attribute_name_index<span class="token punctuation">;</span>
+    u4 attribute_length<span class="token punctuation">;</span>
+    u2 max_stack<span class="token punctuation">;</span>
+    u2 max_locals<span class="token punctuation">;</span>
+    u4 code_length<span class="token punctuation">;</span>
+    u1 code<span class="token punctuation">[</span>code_length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    u2 exception_table_length<span class="token punctuation">;</span>
+    <span class="token punctuation">{</span>
+        u2 start_pc<span class="token punctuation">;</span>
+        u2 end_pc<span class="token punctuation">;</span>
+        u2 handler_pc<span class="token punctuation">;</span>
+        u2 catch_type<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> exception_table<span class="token punctuation">[</span>exception_table_length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    u2 attributes_count<span class="token punctuation">;</span>
+    attribute_info attributes<span class="token punctuation">[</span>attributes_count<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><ul>
+<li>
+<p>&#x5C5E;&#x6027;&#x540D;&#x7D22;&#x5F15;&#x3002;attribute_name_index&#xFF0C;&#x4E24;&#x4E2A;&#x5B57;&#x8282;&#x3002;&#x6307;&#x5411;&#x5E38;&#x91CF;&#x6C60;CONSTANT_Utf8_info&#x5E38;&#x91CF;&#xFF0C;&#x8868;&#x793A;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x5B57;&#x3002;</p>
+</li>
+<li>
+<p>&#x5C5E;&#x6027;&#x957F;&#x5EA6;&#x3002;attribute_length&#x3002;2&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x5C5E;&#x6027;&#x503C;&#x957F;&#x5EA6;&#x7684;&#x5927;&#x5C0F;&#x3002;</p>
+</li>
+<li>
+<p>max_stack&#x3002;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x7684;&#x6700;&#x5927;&#x6DF1;&#x5EA6;&#xFF0C;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x610F;&#x671F;&#x95F4;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x7684;&#x6DF1;&#x5EA6;&#x90FD;&#x4E0D;&#x4F1A;&#x8D85;&#x8FC7;&#x8FD9;&#x4E2A;&#x503C;&#x3002;&#x5B83;&#x7684;&#x8BA1;&#x7B97;&#x89C4;&#x5219;&#xFF1A;&#x6709;&#x5165;&#x6808;&#x7684;&#x6307;&#x4EE4;stack&#x589E;&#x52A0;&#xFF0C;&#x6709;<br>
+&#x51FA;&#x6808;&#x7684;&#x6307;&#x4EE4;stack&#x51CF;&#x5C11;&#xFF0C;&#x5728;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;stack&#x7684;&#x6700;&#x5927;&#x503C;&#x5C31;&#x662F;max_stack&#x7684;&#x503C;&#xFF0C;&#x589E;&#x52A0;&#x548C;&#x51CF;&#x5C11;&#x7684;&#x503C;&#x90FD;&#x662F;1&#xFF0C;&#x4F46;&#x4E5F;&#x6709;&#x4F8B;&#x5916;&#x3002;<br>
+Long&#x548C;Double&#x76F8;&#x5173;&#x7684;&#x6307;&#x4EE4;&#x5165;&#x6808;&#x4F1A;&#x52A0;2&#xFF0C;void&#x76F8;&#x5173;&#x7684;&#x6307;&#x4EE4;&#x5219;&#x4E3A;0&#xFF1B;</p>
+</li>
+<li>
+<p>max_locals&#x3002;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x8868;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x5B83;&#x7684;&#x503C;&#x4E0D;&#x7B49;&#x4E8E;&#x65B9;&#x6CD5;&#x4E2D;&#x6240;&#x6709;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x7684;&#x6570;&#x91CF;&#x4E4B;&#x548C;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x5C40;&#x90E8;&#x4F5C;&#x7528;&#x57DF;&#x7ED3;&#x675F;&#xFF0C;&#x5B83;&#x5185;&#x90E8;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x5360;&#x7528;&#x7684;&#x4F4D;&#x7F6E;&#x5C31;&#x53EF;&#x4EE5;&#x88AB;&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x91CD;&#x590D;&#x7528;&#x4E86;&#x3002;</p>
+</li>
+<li>
+<p>code_length&#x548C;code&#x8868;&#x793A;&#x5B57;&#x8282;&#x7801;&#x76F8;&#x5173;&#x7684;&#x4FE1;&#x606F;&#x3002;code_length&#x8868;&#x793A;&#x5B57;&#x8282;&#x7801;&#x6307;&#x4EE4;&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x5360;&#x7528;4&#x4E2A;&#x5B57;&#x8282;&#xFF0C;code&#x662F;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A;code_length&#x7684;&#x5B57;&#x8282;&#x6570;&#x7EC4;&#xFF0C;&#x5B58;&#x50A8;&#x771F;&#x6B63;&#x7684;&#x5B57;&#x8282;&#x7801;&#x6307;&#x4EE4;&#x3002;</p>
+</li>
+<li>
+<p>exception_table_length&#x548C;exception_table&#x4EE3;&#x8868;&#x5185;&#x90E8;&#x7684;&#x5F02;&#x5E38;&#x8868;&#x4FE1;&#x606F;&#x3002;try-catch&#x5C31;&#x4F1A;&#x751F;&#x6210;&#x5F02;&#x5E38;&#x8868;&#xFF0C;exception_table_length&#x8868;&#x793A;&#x63A5;&#x4E0B;&#x6765;exception_table&#x7684;&#x6570;&#x7EC4;&#x957F;&#x5EA6;&#xFF0C;<br>
+&#x6BCF;&#x4E2A;&#x5F02;&#x5E38;&#x5305;&#x542B;4&#x4E2A;&#x90E8;&#x5206;&#x3002;</p>
+<pre data-role="codeBlock" data-info="c" class="language-c">  <span class="token punctuation">{</span>
+      u2 start_pc<span class="token punctuation">;</span>
+      u2 end_pc<span class="token punctuation">;</span>
+      u2 handler_pc<span class="token punctuation">;</span>
+      u2 catch_type<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</pre><p>&#x8FD9;&#x56DB;&#x4E2A;&#x503C;&#xFF0C;&#x4E2D;&#x524D;&#x4E09;&#x4E2A;&#x90FD;&#x662F;&#x6307;&#x5411;code&#x5B57;&#x8282;&#x6570;&#x7EC4;&#x7684;&#x7D22;&#x5F15;&#x503C;&#xFF0C;start_pc&#x548C;end_pc&#x8868;&#x793A;&#x5F02;&#x5E38;&#x5904;&#x7406;&#x5668;&#x8986;&#x76D6;&#x7684;&#x5B57;&#x8282;&#x7801;&#x5F00;&#x59CB;&#x548C;&#x7ED3;&#x675F;&#x7684;&#x4F4D;&#x7F6E;&#x3002;<br>
+&#x662F;&#x5DE6;&#x95ED;&#x53F3;&#x5F00;&#x533A;&#x95F4;[start_pc,end_pc)&#x3002;handler_pc&#x8868;&#x793A;&#x5F02;&#x5E38;&#x5904;&#x7406;handler&#x5728;code&#x5B57;&#x8282;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#xFF0C;&#x5F02;&#x5E38;&#x88AB;&#x6355;&#x83B7;&#x540E;&#x8BE5;&#x8DF3;&#x8F6C;&#x5230;&#x4F55;&#x5904;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x3002;<br>
+catch_type &#x8868;&#x793A;&#x8981;&#x5904;&#x7406;&#x7684;&#x5F02;&#x5E38;&#x7C7B;&#x578B;&#x662F;&#x4EC0;&#x4E48;&#xFF0C;&#x4E24;&#x4E2A;&#x5B57;&#x8282;&#x8868;&#x793A;&#xFF0C;&#x6307;&#x5411;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x4E3A;CONSTANT_Class_info&#x7684;&#x5E38;&#x91CF;&#x9879;&#xFF0C;&#x5982;&#x679C;catch_type&#x4E3A;0&#xFF0C;&#x5219;&#x8868;&#x793A;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x4EFB;&#x4F55;&#x5F02;&#x5E38;&#xFF0C;&#x53EF;&#x7528;&#x6765;&#x5B9E;&#x73B0;finally&#x7684;&#x8BED;&#x4E49;&#x3002;<br>
+&#x5F53;jvm&#x6267;&#x884C;&#x5230;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E00;&#x65E6;&#x53D1;&#x751F;&#x4E86;&#x5F02;&#x5E38;&#xFF0C;&#x5982;&#x679C;&#x53D1;&#x751F;&#x7684;&#x5F02;&#x5E38;&#x662F;&#x8FD9;&#x4E2A;catch_type&#x5BF9;&#x5E94;&#x7684;&#x6216;&#x8005;&#x662F;&#x5B50;&#x7C7B;&#xFF0C;&#x5219;&#x8DF3;&#x8F6C;&#x5230;code&#x5B57;&#x8282;&#x6570;&#x7EC4;handler_pc&#x51FA;&#x7EE7;&#x7EED;&#x5904;&#x7406;&#x3002;</p>
+</li>
+<li>
+<p>attributes_count attributes[]&#x8868;&#x793A;Code&#x5C5E;&#x6027;&#x7684;&#x9644;&#x5C5E;&#x5C5E;&#x6027;&#xFF0C;JVM&#x89C4;&#x5B9A;Code&#x5C5E;&#x6027;&#x53EA;&#x80FD;&#x5305;&#x542B;&#x56DB;&#x79CD;&#x53EF;&#x9009;&#x5C5E;&#x6027;&#xFF1A;</p>
+<ul>
+<li>LineNumberTable</li>
+<li>LocalVariableTable</li>
+<li>LocalVariableTypeTable</li>
+<li>StackMapTable<br>
+LineNumberTable&#x7528;&#x6765;&#x5B58;&#x6E90;&#x7801;&#x884C;&#x53F7;&#x548C;&#x5B57;&#x8282;&#x7801;&#x504F;&#x79FB;&#x91CF;&#x4E4B;&#x95F4;&#x7684;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;&#xFF0C;&#x5C5E;&#x4E8E;&#x8C03;&#x8BD5;&#x4FE1;&#x606F;&#xFF0C;&#x4E0D;&#x662F;&#x7C7B;&#x6587;&#x4EF6;&#x8FD0;&#x884C;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x9ED8;&#x8BA4;&#x90FD;&#x4F1A;&#x751F;&#x6210;&#x3002;<br>
+&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x8C03;&#x8BD5;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x4E0D;&#x80FD;&#x5728;&#x6E90;&#x7801;&#x4E2D;&#x8BBE;&#x7F6E;&#x65AD;&#x70B9;&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#x5728;&#x4EE3;&#x7801;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x7684;&#x65F6;&#x5019;&#x5728;&#x5806;&#x6808;&#x4E2D;&#x663E;&#x793A;&#x51FA;&#x9519;&#x7684;&#x884C;&#x53F7;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="%E4%B8%89-javap">&#x4E09;&#x3001;Javap</h2>
+
+<p>javap&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x7AA5;&#x63A2;class&#x6587;&#x4EF6;&#x7684;&#x5185;&#x90E8;&#x7EC6;&#x8282;&#x3002;</p>
+<blockquote>
+<p>javap options *.classes</p>
+</blockquote>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;javap&#x4F1A;&#x663E;&#x793A;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x4E3A;public&#x3001;protected&#x548C;&#x9ED8;&#x8BA4;&#x7EA7;&#x522B;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x8981;&#x663E;&#x793A;&#x79C1;&#x6709;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x5219;&#x8981;&#x52A0;&#x4E0A;-p&#x9009;&#x9879;&#x3002;</p>
+<p>javap&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x9009;&#x9879;-s&#xFF0C;&#x53EF;&#x4EE5;&#x8F93;&#x51FA;&#x7C7B;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7B7E;&#x540D;&#x4FE1;&#x606F;&#x3002;<br>
+<img src="./images/javap%E8%B7%9F-s%E7%9A%84%E7%BB%93%E6%9E%9C.png" alt="javap&#x8DDF;-s&#x7684;&#x7ED3;&#x679C;.png"></p>
+<p>-c&#x3002;&#x53EF;&#x4EE5;&#x5BF9;&#x7C7B;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x53CD;&#x7F16;&#x8BD1;&#xFF0C;&#x53EF;&#x4EE5;&#x663E;&#x793A;&#x51FA;&#x65B9;&#x6CD5;&#x5185;&#x7684;&#x5B57;&#x8282;&#x7801;&#x3002;</p>
+<p><img src="./images/javap%E8%B7%9F-c%E7%9A%84%E7%BB%93%E6%9E%9C.png" alt="javap&#x8DDF;-c&#x7684;&#x7ED3;&#x679C;.png"></p>
+<p>-v.&#x53EF;&#x4EE5;&#x663E;&#x793A;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5982;&#x7248;&#x672C;&#x53F7;&#x3001;&#x7C7B;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x3001;&#x5E38;&#x91CF;&#x6C60;&#x76F8;&#x5173;&#x7684;&#x4FE1;&#x606F;&#x3002;&#x5982;&#x4E0B;:</p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt"><code>Classfile /E:/svnrepo/learning-projects/learning-jvm/src/main/java/com/projects/learning/jvm/mainprogram/DemoTest1.class
+  Last modified 2020-6-24; size 461 bytes
+  MD5 checksum f0d0b70a021ebfb01aa4b6367c342fb5
+  Compiled from &quot;DemoTest1.java&quot;
+public class com.projects.learning.jvm.mainprogram.DemoTest1
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #6.#15         // java/lang/Object.&quot;&lt;init&gt;&quot;:()V
+   #2 = Fieldref           #16.#17        // java/lang/System.out:Ljava/io/PrintStream;
+   #3 = String             #18            // Hello World
+   #4 = Methodref          #19.#20        // java/io/PrintStream.println:(Ljava/lang/String;)V
+   #5 = Class              #21            // com/projects/learning/jvm/mainprogram/DemoTest1
+   #6 = Class              #22            // java/lang/Object
+   #7 = Utf8               &lt;init&gt;
+   #8 = Utf8               ()V
+   #9 = Utf8               Code
+  #10 = Utf8               LineNumberTable
+  #11 = Utf8               main
+  #12 = Utf8               ([Ljava/lang/String;)V
+  #13 = Utf8               SourceFile
+  #14 = Utf8               DemoTest1.java
+  #15 = NameAndType        #7:#8          // &quot;&lt;init&gt;&quot;:()V
+  #16 = Class              #23            // java/lang/System
+  #17 = NameAndType        #24:#25        // out:Ljava/io/PrintStream;
+  #18 = Utf8               Hello World
+  #19 = Class              #26            // java/io/PrintStream
+  #20 = NameAndType        #27:#28        // println:(Ljava/lang/String;)V
+  #21 = Utf8               com/projects/learning/jvm/mainprogram/DemoTest1
+  #22 = Utf8               java/lang/Object
+  #23 = Utf8               java/lang/System
+  #24 = Utf8               out
+  #25 = Utf8               Ljava/io/PrintStream;
+  #26 = Utf8               java/io/PrintStream
+  #27 = Utf8               println
+  #28 = Utf8               (Ljava/lang/String;)V
+{
+  public com.projects.learning.jvm.mainprogram.DemoTest1();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object.&quot;&lt;init&gt;&quot;:()V
+         4: return
+      LineNumberTable:
+        line 3: 0
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=2, args_size=1
+         0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: ldc           #3                  // String Hello World
+         5: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+         8: return
+      LineNumberTable:
+        line 6: 0
+        line 7: 8
+}
+SourceFile: &quot;DemoTest1.java&quot;
+
+</code></pre><p>-l&#x3002;&#x663E;&#x793A;&#x884C;&#x53F7;&#x8868;&#x548C;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x8868;&#x3002;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt"><code>Compiled from &quot;DemoTest1.java&quot;
+public class com.projects.learning.jvm.mainprogram.DemoTest1 {
+  public com.projects.learning.jvm.mainprogram.DemoTest1();
+    LineNumberTable:
+      line 3: 0
+
+  public static void main(java.lang.String[]);
+    LineNumberTable:
+      line 6: 0
+      line 7: 8
+}
+</code></pre><p>&#x5B9E;&#x9645;&#x4E0A;&#x6CA1;&#x6709;&#x8F93;&#x51FA;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x8868;&#xFF0C;&#x53EA;&#x8F93;&#x51FA;&#x4E86;&#x884C;&#x53F7;&#x8868;&#xFF0C;&#x539F;&#x56E0;&#x662F;&#x60F3;&#x8981;&#x663E;&#x793A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x8868;&#xFF0C;&#x9700;&#x8981;&#x5728;javac&#x7684;&#x65F6;&#x5019;&#x52A0;&#x4E0A;-g&#x9009;&#x9879;&#xFF0C;<br>
+&#x751F;&#x6210;&#x6240;&#x6709;&#x7684;&#x8C03;&#x8BD5;&#x4FE1;&#x606F;&#x9009;&#x9879;&#xFF0C;&#x52A0;&#x4E0A;-g&#x9009;&#x9879;&#x7F16;&#x8BD1;&#x4E4B;&#x540E;&#xFF0C;&#x518D;&#x52A0;&#x4E0A;-l&#x547D;&#x4EE4;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x663E;&#x793A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x8868;&#x3002;</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

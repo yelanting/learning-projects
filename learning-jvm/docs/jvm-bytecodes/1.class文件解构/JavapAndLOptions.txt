@@ -1,0 +1,11 @@
+Compiled from "DemoTest1.java"
+public class com.projects.learning.jvm.mainprogram.DemoTest1 {
+  public com.projects.learning.jvm.mainprogram.DemoTest1();
+    LineNumberTable:
+      line 3: 0
+
+  public static void main(java.lang.String[]);
+    LineNumberTable:
+      line 6: 0
+      line 7: 8
+}
