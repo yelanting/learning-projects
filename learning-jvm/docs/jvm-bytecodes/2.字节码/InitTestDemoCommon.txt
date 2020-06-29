@@ -1,34 +1,41 @@
 Classfile /E:/svnrepo/learning-projects/learning-jvm/src/main/java/com/projects/learning/jvm/mainprogram/InitTestDemoCommon.class
-  Last modified 2020-6-29; size 347 bytes
-  MD5 checksum 60a24a2286273cea5c16b0c2796f747c
+  Last modified 2020-6-29; size 646 bytes
+  MD5 checksum 1ce94a40feeaf42464ba273dd9d931c9
   Compiled from "InitTestDemoCommon.java"
-public class InitTestDemoCommon
+public class com.projects.learning.jvm.mainprogram.InitTestDemoCommon
   minor version: 0
   major version: 52
   flags: ACC_PUBLIC, ACC_SUPER
 Constant pool:
-   #1 = Methodref          #4.#17         // java/lang/Object."<init>":()V
-   #2 = Fieldref           #3.#18         // InitTestDemoCommon.a:I
-   #3 = Class              #19            // InitTestDemoCommon
-   #4 = Class              #20            // java/lang/Object
-   #5 = Utf8               a
-   #6 = Utf8               I
-   #7 = Utf8               <init>
-   #8 = Utf8               ()V
-   #9 = Utf8               Code
-  #10 = Utf8               LineNumberTable
-  #11 = Utf8               LocalVariableTable
-  #12 = Utf8               this
-  #13 = Utf8               LInitTestDemoCommon;
-  #14 = Utf8               c
-  #15 = Utf8               SourceFile
-  #16 = Utf8               InitTestDemoCommon.java
-  #17 = NameAndType        #7:#8          // "<init>":()V
-  #18 = NameAndType        #5:#6          // a:I
-  #19 = Utf8               InitTestDemoCommon
-  #20 = Utf8               java/lang/Object
+   #1 = Methodref          #6.#23         // java/lang/Object."<init>":()V
+   #2 = Fieldref           #3.#24         // com/projects/learning/jvm/mainprogram/InitTestDemoCommon.a:I
+   #3 = Class              #25            // com/projects/learning/jvm/mainprogram/InitTestDemoCommon
+   #4 = Methodref          #3.#23         // com/projects/learning/jvm/mainprogram/InitTestDemoCommon."<init>":()V
+   #5 = Fieldref           #3.#26         // com/projects/learning/jvm/mainprogram/InitTestDemoCommon.aInt:I
+   #6 = Class              #27            // java/lang/Object
+   #7 = Utf8               aInt
+   #8 = Utf8               I
+   #9 = Utf8               a
+  #10 = Utf8               <init>
+  #11 = Utf8               ()V
+  #12 = Utf8               Code
+  #13 = Utf8               LineNumberTable
+  #14 = Utf8               LocalVariableTable
+  #15 = Utf8               this
+  #16 = Utf8               Lcom/projects/learning/jvm/mainprogram/InitTestDemoCommon;
+  #17 = Utf8               c
+  #18 = Utf8               testMethodWithNew
+  #19 = Utf8               initTestDemoCommon
+  #20 = Utf8               <clinit>
+  #21 = Utf8               SourceFile
+  #22 = Utf8               InitTestDemoCommon.java
+  #23 = NameAndType        #10:#11        // "<init>":()V
+  #24 = NameAndType        #9:#8          // a:I
+  #25 = Utf8               com/projects/learning/jvm/mainprogram/InitTestDemoCommon
+  #26 = NameAndType        #7:#8          // aInt:I
+  #27 = Utf8               java/lang/Object
 {
-  public InitTestDemoCommon();
+  public com.projects.learning.jvm.mainprogram.InitTestDemoCommon();
     descriptor: ()V
     flags: ACC_PUBLIC
     Code:
@@ -44,14 +51,49 @@ Constant pool:
         15: istore_1
         16: return
       LineNumberTable:
-        line 3: 0
-        line 2: 4
-        line 7: 10
-        line 4: 13
-        line 5: 16
+        line 8: 0
+        line 6: 4
+        line 13: 10
+        line 9: 13
+        line 10: 16
       LocalVariableTable:
         Start  Length  Slot  Name   Signature
-            0      17     0  this   LInitTestDemoCommon;
+            0      17     0  this   Lcom/projects/learning/jvm/mainprogram/InitTestDemoCommon;
            16       1     1     c   I
+
+  public void testMethodWithNew();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=1
+         0: new           #3                  // class com/projects/learning/jvm/mainprogram/InitTestDemoCommon
+         3: dup
+         4: invokespecial #4                  // Method "<init>":()V
+         7: astore_1
+         8: return
+      LineNumberTable:
+        line 21: 0
+        line 22: 8
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       9     0  this   Lcom/projects/learning/jvm/mainprogram/InitTestDemoCommon;
+            8       1     1 initTestDemoCommon   Lcom/projects/learning/jvm/mainprogram/InitTestDemoCommon;
+
+  static {};
+    descriptor: ()V
+    flags: ACC_STATIC
+    Code:
+      stack=1, locals=1, args_size=0
+         0: iconst_0
+         1: putstatic     #5                  // Field aInt:I
+         4: bipush        20
+         6: istore_0
+         7: return
+      LineNumberTable:
+        line 4: 0
+        line 17: 4
+        line 18: 7
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
 }
 SourceFile: "InitTestDemoCommon.java"
