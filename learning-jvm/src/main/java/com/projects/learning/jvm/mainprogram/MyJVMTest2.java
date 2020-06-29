@@ -1,9 +1,11 @@
-public class MyJVMTest2{
-    public String foo(){
-        return "";
-    }
+package com.projects.learning.jvm.mainprogram;
 
-    public void bar(){
-        foo();
-    }
+public class MyJVMTest2 {
+	public String foo() {
+		return "";
+	}
+
+	public void bar() {
+		foo();
+	}
 }
