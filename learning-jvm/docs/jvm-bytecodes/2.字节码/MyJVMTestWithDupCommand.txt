@@ -1,0 +1,65 @@
+Classfile /E:/svnrepo/learning-projects/learning-jvm/src/main/java/com/projects/learning/jvm/mainprogram/MyJVMTestWithDupCommand.class
+  Last modified 2020-6-28; size 409 bytes
+  MD5 checksum bfb380deb7dcbcee5df49e0734d2f825
+  Compiled from "MyJVMTestWithDupCommand.java"
+public class MyJVMTestWithDupCommand
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #4.#18         // java/lang/Object."<init>":()V
+   #2 = Fieldref           #3.#19         // MyJVMTestWithDupCommand.id:I
+   #3 = Class              #20            // MyJVMTestWithDupCommand
+   #4 = Class              #21            // java/lang/Object
+   #5 = Utf8               id
+   #6 = Utf8               I
+   #7 = Utf8               <init>
+   #8 = Utf8               ()V
+   #9 = Utf8               Code
+  #10 = Utf8               LineNumberTable
+  #11 = Utf8               LocalVariableTable
+  #12 = Utf8               this
+  #13 = Utf8               LMyJVMTestWithDupCommand;
+  #14 = Utf8               incAndGetId
+  #15 = Utf8               ()I
+  #16 = Utf8               SourceFile
+  #17 = Utf8               MyJVMTestWithDupCommand.java
+  #18 = NameAndType        #7:#8          // "<init>":()V
+  #19 = NameAndType        #5:#6          // id:I
+  #20 = Utf8               MyJVMTestWithDupCommand
+  #21 = Utf8               java/lang/Object
+{
+  public MyJVMTestWithDupCommand();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 1: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   LMyJVMTestWithDupCommand;
+
+  public int incAndGetId();
+    descriptor: ()I
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=1, args_size=1
+         0: aload_0
+         1: dup
+         2: getfield      #2                  // Field id:I
+         5: iconst_1
+         6: iadd
+         7: dup_x1
+         8: putfield      #2                  // Field id:I
+        11: ireturn
+      LineNumberTable:
+        line 4: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      12     0  this   LMyJVMTestWithDupCommand;
+}
+SourceFile: "MyJVMTestWithDupCommand.java"

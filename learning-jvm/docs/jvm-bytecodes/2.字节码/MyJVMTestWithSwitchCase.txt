@@ -1,0 +1,201 @@
+Classfile /E:/svnrepo/learning-projects/learning-jvm/src/main/java/com/projects/learning/jvm/mainprogram/MyJVMTestWithSwitchCase.class
+  Last modified 2020-6-29; size 1032 bytes
+  MD5 checksum 56fdfaa59960fc54104b9b0ee5aa7cd5
+  Compiled from "MyJVMTestWithSwitchCase.java"
+public class MyJVMTestWithSwitchCase
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #8.#29         // java/lang/Object."<init>":()V
+   #2 = Methodref          #30.#31        // java/lang/String.hashCode:()I
+   #3 = String             #32            // man
+   #4 = Methodref          #30.#33        // java/lang/String.equals:(Ljava/lang/Object;)Z
+   #5 = String             #34            // woman
+   #6 = String             #35            // nosex
+   #7 = Class              #36            // MyJVMTestWithSwitchCase
+   #8 = Class              #37            // java/lang/Object
+   #9 = Utf8               <init>
+  #10 = Utf8               ()V
+  #11 = Utf8               Code
+  #12 = Utf8               LineNumberTable
+  #13 = Utf8               LocalVariableTable
+  #14 = Utf8               this
+  #15 = Utf8               LMyJVMTestWithSwitchCase;
+  #16 = Utf8               chooseNear
+  #17 = Utf8               (I)I
+  #18 = Utf8               i
+  #19 = Utf8               I
+  #20 = Utf8               StackMapTable
+  #21 = Utf8               chooseFar
+  #22 = Utf8               chooseString
+  #23 = Utf8               (Ljava/lang/String;)Ljava/lang/String;
+  #24 = Utf8               sex
+  #25 = Utf8               Ljava/lang/String;
+  #26 = Class              #38            // java/lang/String
+  #27 = Utf8               SourceFile
+  #28 = Utf8               MyJVMTestWithSwitchCase.java
+  #29 = NameAndType        #9:#10         // "<init>":()V
+  #30 = Class              #38            // java/lang/String
+  #31 = NameAndType        #39:#40        // hashCode:()I
+  #32 = Utf8               man
+  #33 = NameAndType        #41:#42        // equals:(Ljava/lang/Object;)Z
+  #34 = Utf8               woman
+  #35 = Utf8               nosex
+  #36 = Utf8               MyJVMTestWithSwitchCase
+  #37 = Utf8               java/lang/Object
+  #38 = Utf8               java/lang/String
+  #39 = Utf8               hashCode
+  #40 = Utf8               ()I
+  #41 = Utf8               equals
+  #42 = Utf8               (Ljava/lang/Object;)Z
+{
+  public MyJVMTestWithSwitchCase();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 1: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   LMyJVMTestWithSwitchCase;
+
+  int chooseNear(int);
+    descriptor: (I)I
+    flags:
+    Code:
+      stack=1, locals=2, args_size=2
+         0: iload_1
+         1: tableswitch   { // 100 to 104
+                     100: 36
+                     101: 38
+                     102: 42
+                     103: 42
+                     104: 40
+                 default: 42
+            }
+        36: iconst_0
+        37: ireturn
+        38: iconst_1
+        39: ireturn
+        40: iconst_4
+        41: ireturn
+        42: iconst_m1
+        43: ireturn
+      LineNumberTable:
+        line 3: 0
+        line 4: 36
+        line 5: 38
+        line 6: 40
+        line 7: 42
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      44     0  this   LMyJVMTestWithSwitchCase;
+            0      44     1     i   I
+      StackMapTable: number_of_entries = 4
+        frame_type = 36 /* same */
+        frame_type = 1 /* same */
+        frame_type = 1 /* same */
+        frame_type = 1 /* same */
+
+  int chooseFar(int);
+    descriptor: (I)I
+    flags:
+    Code:
+      stack=1, locals=2, args_size=2
+         0: iload_1
+         1: lookupswitch  { // 3
+                       1: 36
+                      10: 38
+                     100: 41
+                 default: 44
+            }
+        36: iconst_1
+        37: ireturn
+        38: bipush        10
+        40: ireturn
+        41: bipush        100
+        43: ireturn
+        44: iconst_m1
+        45: ireturn
+      LineNumberTable:
+        line 13: 0
+        line 14: 36
+        line 15: 38
+        line 16: 41
+        line 17: 44
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      46     0  this   LMyJVMTestWithSwitchCase;
+            0      46     1     i   I
+      StackMapTable: number_of_entries = 4
+        frame_type = 36 /* same */
+        frame_type = 1 /* same */
+        frame_type = 2 /* same */
+        frame_type = 2 /* same */
+
+  java.lang.String chooseString(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/lang/String;
+    flags:
+    Code:
+      stack=2, locals=4, args_size=2
+         0: aload_1
+         1: astore_2
+         2: iconst_m1
+         3: istore_3
+         4: aload_2
+         5: invokevirtual #2                  // Method java/lang/String.hashCode:()I
+         8: lookupswitch  { // 2
+                  107866: 36
+               113313666: 50
+                 default: 61
+            }
+        36: aload_2
+        37: ldc           #3                  // String man
+        39: invokevirtual #4                  // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        42: ifeq          61
+        45: iconst_0
+        46: istore_3
+        47: goto          61
+        50: aload_2
+        51: ldc           #5                  // String woman
+        53: invokevirtual #4                  // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        56: ifeq          61
+        59: iconst_1
+        60: istore_3
+        61: iload_3
+        62: lookupswitch  { // 2
+                       0: 88
+                       1: 91
+                 default: 94
+            }
+        88: ldc           #3                  // String man
+        90: areturn
+        91: ldc           #5                  // String woman
+        93: areturn
+        94: ldc           #6                  // String nosex
+        96: areturn
+      LineNumberTable:
+        line 22: 0
+        line 24: 88
+        line 26: 91
+        line 28: 94
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      97     0  this   LMyJVMTestWithSwitchCase;
+            0      97     1   sex   Ljava/lang/String;
+      StackMapTable: number_of_entries = 6
+        frame_type = 253 /* append */
+          offset_delta = 36
+          locals = [ class java/lang/String, int ]
+        frame_type = 13 /* same */
+        frame_type = 10 /* same */
+        frame_type = 26 /* same */
+        frame_type = 2 /* same */
+        frame_type = 2 /* same */
+}
+SourceFile: "MyJVMTestWithSwitchCase.java"

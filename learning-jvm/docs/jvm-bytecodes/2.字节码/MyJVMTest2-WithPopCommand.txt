@@ -1,0 +1,76 @@
+Classfile /E:/svnrepo/learning-projects/learning-jvm/src/main/java/com/projects/learning/jvm/mainprogram/MyJVMTest2.class
+  Last modified 2020-6-28; size 431 bytes
+  MD5 checksum 4bf757a8370ca9658c17aa94990d5996
+  Compiled from "MyJVMTest2.java"
+public class MyJVMTest2
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #5.#18         // java/lang/Object."<init>":()V
+   #2 = String             #19            //
+   #3 = Methodref          #4.#20         // MyJVMTest2.foo:()Ljava/lang/String;
+   #4 = Class              #21            // MyJVMTest2
+   #5 = Class              #22            // java/lang/Object
+   #6 = Utf8               <init>
+   #7 = Utf8               ()V
+   #8 = Utf8               Code
+   #9 = Utf8               LineNumberTable
+  #10 = Utf8               LocalVariableTable
+  #11 = Utf8               this
+  #12 = Utf8               LMyJVMTest2;
+  #13 = Utf8               foo
+  #14 = Utf8               ()Ljava/lang/String;
+  #15 = Utf8               bar
+  #16 = Utf8               SourceFile
+  #17 = Utf8               MyJVMTest2.java
+  #18 = NameAndType        #6:#7          // "<init>":()V
+  #19 = Utf8
+  #20 = NameAndType        #13:#14        // foo:()Ljava/lang/String;
+  #21 = Utf8               MyJVMTest2
+  #22 = Utf8               java/lang/Object
+{
+  public MyJVMTest2();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 1: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   LMyJVMTest2;
+
+  public java.lang.String foo();
+    descriptor: ()Ljava/lang/String;
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: ldc           #2                  // String
+         2: areturn
+      LineNumberTable:
+        line 3: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       3     0  this   LMyJVMTest2;
+
+  public void bar();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokevirtual #3                  // Method foo:()Ljava/lang/String;
+         4: pop
+         5: return
+      LineNumberTable:
+        line 7: 0
+        line 8: 5
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   LMyJVMTest2;
+}
+SourceFile: "MyJVMTest2.java"

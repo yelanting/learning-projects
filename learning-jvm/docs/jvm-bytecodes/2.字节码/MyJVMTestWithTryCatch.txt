@@ -1,0 +1,495 @@
+Classfile /E:/svnrepo/learning-projects/learning-jvm/src/main/java/com/projects/learning/jvm/mainprogram/MyJVMTestWithTryCatch.class
+  Last modified 2020-6-29; size 2482 bytes
+  MD5 checksum 872e01dbd90ab1473b03960c590bd9e1
+  Compiled from "MyJVMTestWithTryCatch.java"
+public class MyJVMTestWithTryCatch
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #17.#60        // java/lang/Object."<init>":()V
+   #2 = Methodref          #16.#61        // MyJVMTestWithTryCatch.tryItOut1:()V
+   #3 = Class              #62            // MyJVMTestWithTryCatch$MyException1
+   #4 = Methodref          #16.#63        // MyJVMTestWithTryCatch.handleException:()V
+   #5 = Class              #64            // java/lang/Exception
+   #6 = Methodref          #16.#65        // MyJVMTestWithTryCatch.handleFinally:()V
+   #7 = String             #66            // hello
+   #8 = String             #67            // xyz
+   #9 = Class              #68            // java/io/FileOutputStream
+  #10 = String             #69            // test.txt
+  #11 = Methodref          #9.#70         // java/io/FileOutputStream."<init>":(Ljava/lang/String;)V
+  #12 = Methodref          #9.#71         // java/io/FileOutputStream.write:(I)V
+  #13 = Methodref          #9.#72         // java/io/FileOutputStream.close:()V
+  #14 = Class              #73            // java/lang/Throwable
+  #15 = Methodref          #14.#74        // java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+  #16 = Class              #75            // MyJVMTestWithTryCatch
+  #17 = Class              #76            // java/lang/Object
+  #18 = Utf8               MyException1
+  #19 = Utf8               InnerClasses
+  #20 = Utf8               <init>
+  #21 = Utf8               ()V
+  #22 = Utf8               Code
+  #23 = Utf8               LineNumberTable
+  #24 = Utf8               LocalVariableTable
+  #25 = Utf8               this
+  #26 = Utf8               LMyJVMTestWithTryCatch;
+  #27 = Utf8               tryItOut1
+  #28 = Utf8               Exceptions
+  #29 = Utf8               handleException
+  #30 = Utf8               handleFinally
+  #31 = Utf8               foo
+  #32 = Utf8               e
+  #33 = Utf8               LMyJVMTestWithTryCatch$MyException1;
+  #34 = Utf8               StackMapTable
+  #35 = Class              #62            // MyJVMTestWithTryCatch$MyException1
+  #36 = Utf8               fooMultiException
+  #37 = Utf8               e1
+  #38 = Utf8               Ljava/lang/Exception;
+  #39 = Class              #64            // java/lang/Exception
+  #40 = Utf8               fooWithFinally
+  #41 = Class              #73            // java/lang/Throwable
+  #42 = Utf8               tryCatchWithFinalliAndModifyReturnValue
+  #43 = Utf8               ()I
+  #44 = Utf8               i
+  #45 = Utf8               I
+  #46 = Class              #75            // MyJVMTestWithTryCatch
+  #47 = Utf8               tryCatchWithFinallyAndModifyReturn
+  #48 = Utf8               ()Ljava/lang/String;
+  #49 = Utf8               s
+  #50 = Utf8               Ljava/lang/String;
+  #51 = Class              #77            // java/lang/String
+  #52 = Utf8               tryCatchDemoWithFinallyCommon
+  #53 = Utf8               in
+  #54 = Utf8               Ljava/io/FileOutputStream;
+  #55 = Class              #68            // java/io/FileOutputStream
+  #56 = Class              #78            // java/io/IOException
+  #57 = Utf8               tryCatchDemoWithResource
+  #58 = Utf8               SourceFile
+  #59 = Utf8               MyJVMTestWithTryCatch.java
+  #60 = NameAndType        #20:#21        // "<init>":()V
+  #61 = NameAndType        #27:#21        // tryItOut1:()V
+  #62 = Utf8               MyJVMTestWithTryCatch$MyException1
+  #63 = NameAndType        #29:#21        // handleException:()V
+  #64 = Utf8               java/lang/Exception
+  #65 = NameAndType        #30:#21        // handleFinally:()V
+  #66 = Utf8               hello
+  #67 = Utf8               xyz
+  #68 = Utf8               java/io/FileOutputStream
+  #69 = Utf8               test.txt
+  #70 = NameAndType        #20:#79        // "<init>":(Ljava/lang/String;)V
+  #71 = NameAndType        #80:#81        // write:(I)V
+  #72 = NameAndType        #82:#21        // close:()V
+  #73 = Utf8               java/lang/Throwable
+  #74 = NameAndType        #83:#84        // addSuppressed:(Ljava/lang/Throwable;)V
+  #75 = Utf8               MyJVMTestWithTryCatch
+  #76 = Utf8               java/lang/Object
+  #77 = Utf8               java/lang/String
+  #78 = Utf8               java/io/IOException
+  #79 = Utf8               (Ljava/lang/String;)V
+  #80 = Utf8               write
+  #81 = Utf8               (I)V
+  #82 = Utf8               close
+  #83 = Utf8               addSuppressed
+  #84 = Utf8               (Ljava/lang/Throwable;)V
+{
+  public MyJVMTestWithTryCatch();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 3: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   LMyJVMTestWithTryCatch;
+
+  public void tryItOut1() throws MyJVMTestWithTryCatch$MyException1;
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=0, locals=1, args_size=1
+         0: return
+      LineNumberTable:
+        line 10: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       1     0  this   LMyJVMTestWithTryCatch;
+    Exceptions:
+      throws MyJVMTestWithTryCatch$MyException1
+
+  public void handleException();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=0, locals=1, args_size=1
+         0: return
+      LineNumberTable:
+        line 14: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       1     0  this   LMyJVMTestWithTryCatch;
+
+  public void handleFinally();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=0, locals=1, args_size=1
+         0: return
+      LineNumberTable:
+        line 18: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       1     0  this   LMyJVMTestWithTryCatch;
+
+  public void foo();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=2, args_size=1
+         0: aload_0
+         1: invokevirtual #2                  // Method tryItOut1:()V
+         4: goto          12
+         7: astore_1
+         8: aload_0
+         9: invokevirtual #4                  // Method handleException:()V
+        12: return
+      Exception table:
+         from    to  target type
+             0     4     7   Class MyJVMTestWithTryCatch$MyException1
+      LineNumberTable:
+        line 22: 0
+        line 25: 4
+        line 23: 7
+        line 24: 8
+        line 26: 12
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            8       4     1     e   LMyJVMTestWithTryCatch$MyException1;
+            0      13     0  this   LMyJVMTestWithTryCatch;
+      StackMapTable: number_of_entries = 2
+        frame_type = 71 /* same_locals_1_stack_item */
+          stack = [ class MyJVMTestWithTryCatch$MyException1 ]
+        frame_type = 4 /* same */
+
+  public void fooMultiException();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=2, args_size=1
+         0: aload_0
+         1: invokevirtual #2                  // Method tryItOut1:()V
+         4: goto          20
+         7: astore_1
+         8: aload_0
+         9: invokevirtual #4                  // Method handleException:()V
+        12: goto          20
+        15: astore_1
+        16: aload_0
+        17: invokevirtual #4                  // Method handleException:()V
+        20: return
+      Exception table:
+         from    to  target type
+             0     4     7   Class MyJVMTestWithTryCatch$MyException1
+             0     4    15   Class java/lang/Exception
+      LineNumberTable:
+        line 30: 0
+        line 35: 4
+        line 31: 7
+        line 32: 8
+        line 35: 12
+        line 33: 15
+        line 34: 16
+        line 36: 20
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            8       4     1     e   LMyJVMTestWithTryCatch$MyException1;
+           16       4     1    e1   Ljava/lang/Exception;
+            0      21     0  this   LMyJVMTestWithTryCatch;
+      StackMapTable: number_of_entries = 3
+        frame_type = 71 /* same_locals_1_stack_item */
+          stack = [ class MyJVMTestWithTryCatch$MyException1 ]
+        frame_type = 71 /* same_locals_1_stack_item */
+          stack = [ class java/lang/Exception ]
+        frame_type = 4 /* same */
+
+  public void fooWithFinally();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=3, args_size=1
+         0: aload_0
+         1: invokevirtual #2                  // Method tryItOut1:()V
+         4: aload_0
+         5: invokevirtual #6                  // Method handleFinally:()V
+         8: goto          30
+        11: astore_1
+        12: aload_0
+        13: invokevirtual #4                  // Method handleException:()V
+        16: aload_0
+        17: invokevirtual #6                  // Method handleFinally:()V
+        20: goto          30
+        23: astore_2
+        24: aload_0
+        25: invokevirtual #6                  // Method handleFinally:()V
+        28: aload_2
+        29: athrow
+        30: return
+      Exception table:
+         from    to  target type
+             0     4    11   Class MyJVMTestWithTryCatch$MyException1
+             0     4    23   any
+            11    16    23   any
+      LineNumberTable:
+        line 40: 0
+        line 44: 4
+        line 45: 8
+        line 41: 11
+        line 42: 12
+        line 44: 16
+        line 45: 20
+        line 44: 23
+        line 45: 28
+        line 46: 30
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           12       4     1     e   LMyJVMTestWithTryCatch$MyException1;
+            0      31     0  this   LMyJVMTestWithTryCatch;
+      StackMapTable: number_of_entries = 3
+        frame_type = 75 /* same_locals_1_stack_item */
+          stack = [ class MyJVMTestWithTryCatch$MyException1 ]
+        frame_type = 75 /* same_locals_1_stack_item */
+          stack = [ class java/lang/Throwable ]
+        frame_type = 6 /* same */
+
+  public int tryCatchWithFinalliAndModifyReturnValue();
+    descriptor: ()I
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=4, args_size=1
+         0: bipush        100
+         2: istore_1
+         3: iload_1
+         4: istore_2
+         5: iinc          1, 1
+         8: iload_2
+         9: ireturn
+        10: astore_3
+        11: iinc          1, 1
+        14: aload_3
+        15: athrow
+      Exception table:
+         from    to  target type
+             3     5    10   any
+      LineNumberTable:
+        line 49: 0
+        line 52: 3
+        line 54: 5
+        line 52: 8
+        line 54: 10
+        line 55: 14
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      16     0  this   LMyJVMTestWithTryCatch;
+            3      13     1     i   I
+      StackMapTable: number_of_entries = 1
+        frame_type = 255 /* full_frame */
+          offset_delta = 10
+          locals = [ class MyJVMTestWithTryCatch, int ]
+          stack = [ class java/lang/Throwable ]
+
+  public java.lang.String tryCatchWithFinallyAndModifyReturn();
+    descriptor: ()Ljava/lang/String;
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=4, args_size=1
+         0: ldc           #7                  // String hello
+         2: astore_1
+         3: aload_1
+         4: astore_2
+         5: ldc           #8                  // String xyz
+         7: astore_1
+         8: aload_2
+         9: areturn
+        10: astore_3
+        11: ldc           #8                  // String xyz
+        13: astore_1
+        14: aload_3
+        15: athrow
+      Exception table:
+         from    to  target type
+             3     5    10   any
+      LineNumberTable:
+        line 59: 0
+        line 61: 3
+        line 63: 5
+        line 61: 8
+        line 63: 10
+        line 64: 14
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      16     0  this   LMyJVMTestWithTryCatch;
+            3      13     1     s   Ljava/lang/String;
+      StackMapTable: number_of_entries = 1
+        frame_type = 255 /* full_frame */
+          offset_delta = 10
+          locals = [ class MyJVMTestWithTryCatch, class java/lang/String ]
+          stack = [ class java/lang/Throwable ]
+
+  public static void tryCatchDemoWithFinallyCommon() throws java.io.IOException;
+    descriptor: ()V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=3, locals=2, args_size=0
+         0: aconst_null
+         1: astore_0
+         2: new           #9                  // class java/io/FileOutputStream
+         5: dup
+         6: ldc           #10                 // String test.txt
+         8: invokespecial #11                 // Method java/io/FileOutputStream."<init>":(Ljava/lang/String;)V
+        11: astore_0
+        12: aload_0
+        13: iconst_1
+        14: invokevirtual #12                 // Method java/io/FileOutputStream.write:(I)V
+        17: aconst_null
+        18: aload_0
+        19: if_acmpeq     41
+        22: aload_0
+        23: invokevirtual #13                 // Method java/io/FileOutputStream.close:()V
+        26: goto          41
+        29: astore_1
+        30: aconst_null
+        31: aload_0
+        32: if_acmpeq     39
+        35: aload_0
+        36: invokevirtual #13                 // Method java/io/FileOutputStream.close:()V
+        39: aload_1
+        40: athrow
+        41: return
+      Exception table:
+         from    to  target type
+             2    17    29   any
+      LineNumberTable:
+        line 68: 0
+        line 70: 2
+        line 71: 12
+        line 73: 17
+        line 74: 22
+        line 73: 29
+        line 74: 35
+        line 76: 39
+        line 77: 41
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            2      40     0    in   Ljava/io/FileOutputStream;
+      StackMapTable: number_of_entries = 3
+        frame_type = 255 /* full_frame */
+          offset_delta = 29
+          locals = [ class java/io/FileOutputStream ]
+          stack = [ class java/lang/Throwable ]
+        frame_type = 252 /* append */
+          offset_delta = 9
+          locals = [ class java/lang/Throwable ]
+        frame_type = 250 /* chop */
+          offset_delta = 1
+    Exceptions:
+      throws java.io.IOException
+
+  public static void tryCatchDemoWithResource() throws java.io.IOException;
+    descriptor: ()V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=3, locals=5, args_size=0
+         0: new           #9                  // class java/io/FileOutputStream
+         3: dup
+         4: ldc           #10                 // String test.txt
+         6: invokespecial #11                 // Method java/io/FileOutputStream."<init>":(Ljava/lang/String;)V
+         9: astore_0
+        10: aconst_null
+        11: astore_1
+        12: aload_0
+        13: iconst_1
+        14: invokevirtual #12                 // Method java/io/FileOutputStream.write:(I)V
+        17: aload_0
+        18: ifnull        86
+        21: aload_1
+        22: ifnull        41
+        25: aload_0
+        26: invokevirtual #13                 // Method java/io/FileOutputStream.close:()V
+        29: goto          86
+        32: astore_2
+        33: aload_1
+        34: aload_2
+        35: invokevirtual #15                 // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+        38: goto          86
+        41: aload_0
+        42: invokevirtual #13                 // Method java/io/FileOutputStream.close:()V
+        45: goto          86
+        48: astore_2
+        49: aload_2
+        50: astore_1
+        51: aload_2
+        52: athrow
+        53: astore_3
+        54: aload_0
+        55: ifnull        84
+        58: aload_1
+        59: ifnull        80
+        62: aload_0
+        63: invokevirtual #13                 // Method java/io/FileOutputStream.close:()V
+        66: goto          84
+        69: astore        4
+        71: aload_1
+        72: aload         4
+        74: invokevirtual #15                 // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+        77: goto          84
+        80: aload_0
+        81: invokevirtual #13                 // Method java/io/FileOutputStream.close:()V
+        84: aload_3
+        85: athrow
+        86: return
+      Exception table:
+         from    to  target type
+            25    29    32   Class java/lang/Throwable
+            12    17    48   Class java/lang/Throwable
+            12    17    53   any
+            62    66    69   Class java/lang/Throwable
+            48    54    53   any
+      LineNumberTable:
+        line 80: 0
+        line 81: 12
+        line 82: 17
+        line 80: 48
+        line 82: 53
+        line 83: 86
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           10      76     0    in   Ljava/io/FileOutputStream;
+      StackMapTable: number_of_entries = 8
+        frame_type = 255 /* full_frame */
+          offset_delta = 32
+          locals = [ class java/io/FileOutputStream, class java/lang/Throwable ]
+          stack = [ class java/lang/Throwable ]
+        frame_type = 8 /* same */
+        frame_type = 70 /* same_locals_1_stack_item */
+          stack = [ class java/lang/Throwable ]
+        frame_type = 68 /* same_locals_1_stack_item */
+          stack = [ class java/lang/Throwable ]
+        frame_type = 255 /* full_frame */
+          offset_delta = 15
+          locals = [ class java/io/FileOutputStream, class java/lang/Throwable, top, class java/lang/Throwable ]
+          stack = [ class java/lang/Throwable ]
+        frame_type = 10 /* same */
+        frame_type = 3 /* same */
+        frame_type = 255 /* full_frame */
+          offset_delta = 1
+          locals = []
+          stack = []
+    Exceptions:
+      throws java.io.IOException
+}
+SourceFile: "MyJVMTestWithTryCatch.java"
+InnerClasses:
+     public static #18= #3 of #16; //MyException1=class MyJVMTestWithTryCatch$MyException1 of class MyJVMTestWithTryCatch
