@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<title>HTML5</title>
+	</head>
+	<style type="text/css"></style>
+	<body>
+		<section>
+			<legend>H5新增的input type类型</legend>
+			邮箱:<input type="email" /><br />
+			手机:<input type="tel" /><br />
+			网址:<input type="url" /><br />
+			数字:<input type="number" /><br />
+			搜索框:<input type="search" /><br />
+			滑块:<input type="range" /><br />
+			时间:<input type="time" /><br />
+			日期:<input type="date" /><br />
+			几年几月:<input type="month" /><br />
+			几年几周:<input type="week" /><br />
+			颜色:<input type="color" /><br />
+		</section>
+
+		<section>
+			<p>选取图片：</p>
+			<input type="file" accept="image/*" multiple="multiple" id="uploadFile" />
+		</section>
+	</body>
+	<script type="text/javascript">
+		var recorder = document.getElementById("uploadFile");
+
+		recorder.addEventListener("change", function (e) {
+			var files = e.target.files;
+			console.log(files);
+		});
+	</script>
+</html>

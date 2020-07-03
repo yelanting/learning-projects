@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<title>HTML5</title>
+	</head>
+	<style type="text/css"></style>
+	<body>
+		<audio id="audio" src="../audiosAndVideos/北京第三区交通委.mp3" controls autoplay="true">
+			浏览器不支持audio
+		</audio>
+        
+        <video controls src="../audiosAndVideos/01_开发背景.mp4" width="300" id="video">您的浏览器不支持video</video>
+		<script>
+			var audio = document.getElementById("audio");
+
+			// console.log(audio);
+
+			// // audio.muted =  true;
+			// audio.volume = 0.2;
+
+			// audio.canPlayType("audio/ogg");
+			// audio.pause();
+			// audio.load();
+			// audio.play();
+			// audio.pause();
+
+			audio.addEventListener("canplay", function () {
+				console.log(audio.duration);
+			});
+			audio.addEventListener("loadstart", function () {
+				console.log("loadstart" + new Date().getTime());
+			});
+			audio.addEventListener("durationchange", function () {
+				console.log("durationchange:" + new Date().getTime());
+			});
+			audio.addEventListener("loadedmetadata", function () {
+				console.log("loadedmetadata:" + new Date().getTime());
+			});
+			audio.addEventListener("progress", function () {
+				console.log("progress:" + new Date().getTime());
+			});
+			audio.addEventListener("suspend", function () {
+				console.log("suspend:" + new Date().getTime());
+			});
+			audio.addEventListener("loadeddata", function () {
+				console.log("loadeddata:" + new Date().getTime());
+			});
+			audio.addEventListener("canplaythrough", function () {
+				console.log("canplaythrough:" + new Date().getTime());
+			});
+			audio.addEventListener("play", function () {
+				console.log("play:" + new Date().getTime());
+			});
+			audio.addEventListener("timeupdate", function () {
+				console.log("timeupdate:" + new Date().getTime());
+			});
+			audio.addEventListener("pause", function () {
+				console.log("pause:" + new Date().getTime());
+			});
+			audio.addEventListener("ended", function () {
+				console.log("ended:" + new Date().getTime());
+			});
+			audio.addEventListener("volumechange", function () {
+				console.log("volumechange:" + new Date().getTime());
+            });
+            
+
+            var video = document.getElementById("video");
+            video.muted = true;
+            video.volume = 1;
+            video.poster = "../images/语义化标签总结.png";
+            // video.width = 200;
+            // video.height = 200;
+
+            video.load();
+            video.play();
+            video.pause();
+
+
+			video.addEventListener("canplay", function () {
+				console.log(video.duration);
+			});
+			video.addEventListener("loadstart", function () {
+				console.log("loadstart" + new Date().getTime());
+			});
+			video.addEventListener("durationchange", function () {
+				console.log("durationchange:" + new Date().getTime());
+			});
+			video.addEventListener("loadedmetadata", function () {
+				console.log("loadedmetadata:" + new Date().getTime());
+			});
+			video.addEventListener("progress", function () {
+				console.log("progress:" + new Date().getTime());
+			});
+			video.addEventListener("suspend", function () {
+				console.log("suspend:" + new Date().getTime());
+			});
+			video.addEventListener("loadeddata", function () {
+				console.log("loadeddata:" + new Date().getTime());
+			});
+			video.addEventListener("canplaythrough", function () {
+				console.log("canplaythrough:" + new Date().getTime());
+			});
+			video.addEventListener("play", function () {
+				console.log("play:" + new Date().getTime());
+			});
+			video.addEventListener("timeupdate", function () {
+				console.log("timeupdate:" + new Date().getTime());
+			});
+			video.addEventListener("pause", function () {
+				console.log("pause:" + new Date().getTime());
+			});
+			video.addEventListener("ended", function () {
+				console.log("ended:" + new Date().getTime());
+			});
+			video.addEventListener("volumechange", function () {
+				console.log("volumechange:" + new Date().getTime());
+			});
+		</script>
+	</body>
+</html>

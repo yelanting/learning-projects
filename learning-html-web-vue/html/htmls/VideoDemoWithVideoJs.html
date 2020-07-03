@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<title>HTML5</title>
+		<link href="../video-js-7.8.3/video-js.css" rel="stylesheet" />
+		<script src="../video-js-7.8.3/video.js"></script>
+	</head>
+	<body>
+		<video
+			controls
+			src="../audiosAndVideos/01_开发背景.mp4"
+			class="video-js"
+			width="300"
+			id="video"
+			type="video/mp4"
+		>
+			您的浏览器不支持video
+		</video>
+		<script type="text/javascript">
+			var options = {
+				width: 300, //设置宽度
+				height: 400, //页面高度
+				controls: true, //设置显示控件
+				preload: "auto", //是否缓冲
+			};
+			//初始化videojs，第一个参数是video的标签id，第二个参数是videojs接收的参数，第三个是videojs初始化成功后执行的方法
+
+			var video = videojs("video", options, function () {
+				console.log("初始化成功！");
+			});
+		</script>
+	</body>
+</html>
