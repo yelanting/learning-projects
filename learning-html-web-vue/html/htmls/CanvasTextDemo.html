@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<title>HTML5</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	</head>
+	<style type="text/css">
+		#canvas {
+			border: 1px solid black;
+		}
+	</style>
+	<body>
+		<canvas id="canvasDraw" width="600" height="600">你的浏览器不支持</canvas>
+		<script type="text/javascript">
+			var canvasDraw = document.getElementById("canvasDraw");
+			var canvasContext = canvasDraw.getContext("2d");
+
+			canvasContext.font = "90px Arial";
+			canvasContext.fillText("Hello Canvas", 10, 100);
+			canvasContext.strokeText("Hello Canvas 2", 10, 200);
+		</script>
+	</body>
+</html>

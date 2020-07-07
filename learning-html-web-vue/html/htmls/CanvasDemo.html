@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<title>HTML5</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	</head>
+	<style type="text/css">
+		#canvas {
+			border: 1px solid black;
+		}
+	</style>
+	<body>
+		<canvas id="canvasDraw" width="600" height="600">你的浏览器不支持</canvas>
+		<canvas id="canvasFive" width="600" height="600">你的浏览器不支持</canvas>
+		<canvas id="canvasRect" width="600" height="600">你的浏览器不支持</canvas>
+		<canvas id="canvasCircle" width="600" height="600">你的浏览器不支持</canvas>
+		<canvas id="canvasCircleArcTo" width="600" height="600">你的浏览器不支持</canvas>
+
+		<script type="text/javascript">
+			var canvasDraw = document.getElementById("canvasDraw");
+			var canvasFive = document.getElementById("canvasFive");
+			var contextDraw = canvasDraw.getContext("2d");
+			var contextFive = canvasFive.getContext("2d");
+			//绘制线段
+			contextDraw.beginPath();
+			contextDraw.moveTo(50, 50);
+			contextDraw.lineTo(200, 50);
+			contextDraw.closePath();
+			contextDraw.lineWidth = "4";
+			contextDraw.stroke();
+
+			//绘制三角形
+			contextDraw.beginPath();
+			contextDraw.moveTo(50, 70);
+			contextDraw.lineTo(200, 70);
+			contextDraw.lineTo(200, 200);
+			contextDraw.closePath();
+
+			contextDraw.lineWidth = "7";
+			contextDraw.strokeStyle = "blue";
+			contextDraw.lineJoin = "round";
+			contextDraw.stroke();
+
+			//绘制五角星
+			var R = 100;
+			var r = 50;
+			var x = 200;
+			var y = 200;
+
+			contextFive.beginPath();
+			//在五角星的内外画两个圆，五角星有五个角，360/5 = 72度
+			for (var i = 0; i < 5; i++) {
+				contextFive.lineTo(
+					Math.cos(((18 + 72 * i) / 180) * Math.PI) * R + x,
+					-Math.sin(((18 + 72 * i) / 180) * Math.PI) * R + y
+				);
+
+				contextFive.lineTo(
+					Math.cos(((54 + 72 * i) / 180) * Math.PI) * r + x,
+					-Math.sin(((54 + 72 * i) / 180) * Math.PI) * r + y
+				);
+			}
+
+			contextFive.closePath();
+			contextFive.fill();
+			contextFive.stroke();
+
+			//绘制矩形
+			var canvasRect = document.getElementById("canvasRect");
+			var contextRect = canvasRect.getContext("2d");
+			contextRect.fillRect(10, 10, 100, 50); //绘制矩形，默认是填充黑色
+			contextRect.strokeRect(10, 70, 100, 50); //绘制矩形边框
+
+			//绘制圆
+			var canvasCircle = document.getElementById("canvasCircle");
+			var contextCircle = canvasCircle.getContext("2d");
+			contextCircle.arc(100, 75, 50, 0, 2 * Math.PI); //绘制，默认是填充黑色
+			contextCircle.stroke();
+
+			//绘制圆
+			var canvasCircleArcTo = document.getElementById("canvasCircleArcTo");
+			var contextCircleArcTo = canvasCircleArcTo.getContext("2d");
+			contextCircleArcTo.beginPath();
+
+			//标出辅助点的位置
+			contextCircleArcTo.fillText("A", 100, 100);
+			contextCircleArcTo.fillText("B", 150, 100);
+			contextCircleArcTo.fillText("C", 150, 150);
+			contextCircleArcTo.fillText("D", 150, 200);
+			contextCircleArcTo.fillText("E", 100, 200);
+			contextCircleArcTo.fillText("F", 50, 200);
+			contextCircleArcTo.fillText("G", 50, 150);
+			contextCircleArcTo.fillText("H", 50, 100);
+
+			contextCircleArcTo.moveTo(100, 100);
+			//第一段弧
+			contextCircleArcTo.arcTo(150, 100, 150, 150, 50);
+
+			//第二段
+			contextCircleArcTo.arcTo(150, 200, 100, 200, 50);
+
+			//第三段
+			contextCircleArcTo.arcTo(50, 200, 50, 150, 50);
+			contextCircleArcTo.arcTo(50, 100, 100, 100, 50);
+			contextCircleArcTo.stroke();
+		</script>
+	</body>
+</html>
